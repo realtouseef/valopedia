@@ -1,16 +1,18 @@
 export interface AgentsTypes {
-  uuid?: string | number;
-  displayName: string;
-  description: string;
-  developerName?: string;
-  characterTags?: string;
-  displayIcon: string;
-  fullPortrait?: string;
-  background: string;
-  backgroundGradientColors: string[] | number[];
-  isPlayableCharacter: boolean;
-  role: AgentsRoleProps;
-  abilities: AgentsAbilityProps[];
+  data: {
+    uuid?: string | number;
+    displayName: string;
+    description: string;
+    developerName?: string;
+    characterTags?: string;
+    displayIcon: string;
+    fullPortrait?: string;
+    background: string;
+    backgroundGradientColors: string[] | number[];
+    isPlayableCharacter: boolean;
+    role: AgentsRoleProps;
+    abilities: AgentsAbilityProps[];
+  };
 }
 
 export type AgentsRoleProps = {

@@ -1,8 +1,10 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import { siteMetaData } from "@utils/siteMetaData";
+import Agents from "@components/Agents";
+import { NextPage, GetStaticProps } from "next";
+import { AgentsTypes } from "@utils/types";
 
-const Home: NextPage = () => {
+const Home: NextPage<{ characters: AgentsTypes }> = ({ characters }) => {
   const { siteName, siteDescription, siteKeywords, siteAuthor, siteUrl } =
     siteMetaData;
   return (
@@ -16,10 +18,20 @@ const Home: NextPage = () => {
         <meta name="author" content={`Developed by ${siteAuthor}`} />
         <meta name="robots" content="index, follow" />
       </Head>
+      <Agents characters={characters} />
     </>
   );
 };
 
 export default Home;
 
-export const getStaticProps = async () => {};
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch(process.env.NEXT_PUBLIC_AGENTS as string);
+  const data = await res.json();
+
+  return {
+    props: {
+      characters: data,
+    },
+  };
+};
