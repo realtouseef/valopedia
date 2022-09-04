@@ -26,7 +26,7 @@ const Home: NextPage<{ characters: AgentsTypes }> = ({ characters }) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(process.env.NEXT_PUBLIC_AGENTS as string);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_AGENTS}` as string);
   const data = await res.json();
 
   return {

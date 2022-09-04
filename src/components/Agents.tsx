@@ -16,8 +16,8 @@ const Agents: React.FunctionComponent<AgentsTypes> = ({ characters }) => {
             isPlayableCharacter,
           }) => {
             return (
-              <Link href={"/"} key={uuid}>
-                {isPlayableCharacter ? (
+              <Link href={`agent/${uuid}`} key={uuid}>
+                {isPlayableCharacter && (
                   <a className="agent_wrapper">
                     <Image
                       src={displayIcon}
@@ -32,8 +32,6 @@ const Agents: React.FunctionComponent<AgentsTypes> = ({ characters }) => {
                       <span className="agent_role">{role?.displayName}</span>
                     </div>
                   </a>
-                ) : (
-                  ""
                 )}
               </Link>
             );
