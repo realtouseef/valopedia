@@ -1,0 +1,30 @@
+.agent {
+  @apply max-w-md lg:max-w-5xl mx-auto my-10;
+  @apply grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5;
+
+  .agent_wrapper {
+    @apply px-3 py-2 cursor-pointer select-none;
+    @apply hover:bg-gray-100 hover:rounded-3xl;
+
+    .agent_image {
+      @apply rounded-full;
+    }
+
+    .agent_texts {
+      @apply max-w-xl;
+
+      .agent_name {
+        @apply font-bold text-lg;
+      }
+
+      .agent_description {
+        @apply text-sm text-gray-700;
+      }
+
+      .agent_role {
+        @apply bg-fuchsia-300 px-1 py-[0.5px] rounded-lg;
+        @apply text-[6px] text-white;
+      }
+    }
+  }
+}
