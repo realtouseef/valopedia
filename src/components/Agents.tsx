@@ -17,22 +17,20 @@ const Agents: React.FunctionComponent<AgentsTypes> = ({ characters }) => {
           }) => {
             return (
               <Link href={`agent/${uuid}`} key={uuid}>
-                {isPlayableCharacter && (
-                  <a className="agent_wrapper">
-                    <Image
-                      src={displayIcon}
-                      alt={displayName}
-                      width="100"
-                      height="100"
-                      className="agent_image"
-                    />
-                    <div className="agent_texts">
-                      <p className="agent_name">{displayName}</p>
-                      <p className="agent_description">{description}</p>
-                      <span className="agent_role">{role?.displayName}</span>
-                    </div>
-                  </a>
-                )}
+                <a className="agent_wrapper">
+                  <Image
+                    src={displayIcon}
+                    alt={displayName}
+                    width="100"
+                    height="100"
+                    className="agent_image"
+                  />
+                  <div className="agent_texts">
+                    <p className="agent_name">{displayName}</p>
+                    <p className="agent_description">{description}</p>
+                    <span className="agent_role">{role?.displayName}</span>
+                  </div>
+                </a>
               </Link>
             );
           }

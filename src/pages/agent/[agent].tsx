@@ -1,10 +1,17 @@
 import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
+import Image from "next/image";
 
 const Agent = ({ agent }) => {
   console.log(agent);
   return (
     <>
-      <p>{agent.displayName}</p>
+      <Head>
+        <title>{agent.data.displayName}</title>
+      </Head>
+      hi
+      <Image src={agent.data.fullPortrait} width={700} height={700} />
+      <p>{agent.data.displayName}</p>
     </>
   );
 };
@@ -25,10 +32,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const uuid = params.agent;
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_AGENTS}/${uuid}` as string
-  );
+  const id = params.agent;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_AGENTS}/${id}` as string);
   const data = await res.json();
 
   return {
