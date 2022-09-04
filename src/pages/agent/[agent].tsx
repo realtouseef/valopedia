@@ -1,17 +1,57 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
 import Image from "next/image";
+import SEO from "@components/SEO";
+import Link from "next/link";
 
 const Agent = ({ agent }) => {
-  console.log(agent);
+  const {
+    displayName,
+    description,
+    developerName,
+    fullPortrait,
+    abilities,
+    role,
+  } = agent.data;
   return (
     <>
-      <Head>
-        <title>{agent.data.displayName}</title>
-      </Head>
-      hi
-      <Image src={agent.data.fullPortrait} width={700} height={700} />
-      <p>{agent.data.displayName}</p>
+      <SEO
+        displayName={displayName}
+        description={description}
+        developerName={developerName}
+        fullPortrait={fullPortrait}
+      />
+      <Link href="/">Go back to homepage</Link>
+      <br />
+      <Image src={fullPortrait} width={700} height={700} />
+      <p>{displayName}</p>
+      <p>{description}</p>
+      <div>
+        <Image
+          src={role.displayIcon}
+          alt={role.displayName}
+          width={100}
+          height={100}
+        />
+        <p>{role.displayName}</p>
+        <p>{role.description}</p>
+      </div>
+      <div>
+        {abilities.map((ability) => {
+          return (
+            <div key={ability.slot}>
+              <p>{ability.slot}</p>
+              <Image
+                src={ability.displayIcon}
+                alt={ability.displayName}
+                width={100}
+                height={100}
+              />
+              <p>{ability.displayName}</p>
+              <p>{ability.description}</p>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };
