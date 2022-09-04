@@ -1,6 +1,8 @@
 {
   "name": "valopedia",
   "version": "0.1.0",
+  "description": "Encyclopedia for Valorant",
+  "author": "Touseef ibn Khaleel <touseef69r@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "next dev",
