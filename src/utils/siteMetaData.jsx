@@ -5,4 +5,6 @@ export const siteMetaData = {
   siteUrl: "https://valopedia.vercel.app",
   siteKeywords:
     "valorant, valorant agents, information about valorant, info about valorant, valorant game",
+  twitterHandle: "@touseefcodes",
+  twitterLink: "https://twitter.com/touseefcodes",
 };

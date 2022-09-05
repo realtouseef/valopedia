@@ -1,9 +1,7 @@
 import Image from "next/image";
 import SEO from "@components/SEO";
-import Link from "next/link";
 
 const Agent = ({ agent }) => {
-  console.log(agent);
   const {
     displayName,
     description,
@@ -20,8 +18,6 @@ const Agent = ({ agent }) => {
         developerName={developerName}
         fullPortrait={fullPortrait}
       />
-      <Link href="/">Go back to homepage</Link>
-      <br />
 
       <div className="agent_profile">
         <div className="agent_portrait">
