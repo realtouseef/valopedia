@@ -1,0 +1,50 @@
+.agent_profile {
+  @apply flex items-center justify-start;
+
+  .agent_portrait {
+  }
+
+  .agent_profile_text {
+    @apply max-w-lg space-y-5;
+
+    .displayName {
+      @apply mb-4 text-4xl font-black;
+    }
+
+    .description {
+      @apply text-lg;
+    }
+
+    .agent_profile_roles {
+      .agent_roles_icons {
+      }
+
+      .agent_roles_name {
+        @apply text-lg font-bold;
+      }
+
+      .agent_roles_description {
+        @apply text-sm text-gray-600;
+      }
+    }
+
+    .agent_profile_ability {
+      @apply grid grid-cols-2 gap-4;
+
+      .agent_abililty_slot {
+        @apply flex items-center justify-center w-max bg-purple-300 px-3 py-[1px] rounded-2xl;
+        @apply text-purple-600 font-bold text-xs;
+
+        .ability_span {
+          @apply w-[10px] h-[10px] mr-[6px] bg-purple-800 rounded-full;
+        }
+      }
+      .agent_abililty_name {
+        @apply font-bold text-lg;
+      }
+      .agent_abililty_description {
+        @apply text-sm;
+      }
+    }
+  }
+}

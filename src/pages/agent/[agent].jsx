@@ -21,35 +21,65 @@ const Agent = ({ agent }) => {
       />
       <Link href="/">Go back to homepage</Link>
       <br />
-      <Image src={fullPortrait} width={700} height={700} />
-      <p>{displayName}</p>
-      <p>{description}</p>
-      <div>
+
+      <div className="agent_profile">
         <Image
-          src={role.displayIcon}
-          alt={role.displayName}
-          width={100}
-          height={100}
+          src={fullPortrait}
+          alt={displayName}
+          placeholder="blur"
+          blurDataURL={fullPortrait}
+          objectFit="cover"
+          quality={100}
+          width="760"
+          height="1280"
+          className="agent_portrait"
         />
-        <p>{role.displayName}</p>
-        <p>{role.description}</p>
-      </div>
-      <div>
-        {abilities.map((ability) => {
-          return (
-            <div key={ability.slot}>
-              <p>{ability.slot}</p>
-              <Image
-                src={ability.displayIcon}
-                alt={ability.displayName}
-                width={100}
-                height={100}
-              />
-              <p>{ability.displayName}</p>
-              <p>{ability.description}</p>
-            </div>
-          );
-        })}
+
+        <div className="agent_profile_text">
+          <p className="displayName">{displayName}</p>
+          <p className="description">{description}</p>
+
+          <div className="agent_profile_roles">
+            <Image
+              src={role.displayIcon}
+              alt={role.displayName}
+              width="30"
+              height="30"
+              className="agent_roles_icons"
+            />
+
+            <p className="agent_roles_name">{role.displayName}</p>
+
+            <p className="agent_roles_description">{role.description}</p>
+          </div>
+
+          <div className="agent_profile_ability">
+            {abilities.map((ability) => {
+              return (
+                <div key={ability.slot}>
+                  <p className="agent_abililty_slot">
+                    <p className="ability_span"></p>
+                    {ability.slot}
+                  </p>
+
+                  <Image
+                    src={ability.displayIcon}
+                    alt={ability.displayName}
+                    width={50}
+                    height={50}
+                    className="agent_abililty_icons"
+                  />
+
+                  <p className="agent_abililty_name">{ability.displayName}</p>
+
+                  <p className="agent_abililty_description">
+                    {ability.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </>
   );
