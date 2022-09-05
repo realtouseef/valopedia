@@ -1,8 +1,7 @@
-import type { AgentsTypes } from "@utils/types";
 import Image from "next/image";
 import Link from "next/link";
 
-const Agents: React.FunctionComponent<AgentsTypes> = ({ characters }) => {
+const Agents = ({ characters }) => {
   return (
     <>
       <main className="agent">

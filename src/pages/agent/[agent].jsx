@@ -1,4 +1,3 @@
-import { GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import SEO from "@components/SEO";
 import Link from "next/link";
@@ -58,8 +57,8 @@ const Agent = ({ agent }) => {
 
 export default Agent;
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch(process.env.NEXT_PUBLIC_AGENTS as string);
+export const getStaticPaths = async () => {
+  const res = await fetch(process.env.NEXT_PUBLIC_AGENTS);
   const data = await res.json();
   const paths = data.data.map((i) => {
     return { params: { agent: i.uuid } };
@@ -71,9 +70,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const id = params.agent;
-  const res = await fetch(`${process.env.NEXT_PUBLIC_AGENTS}/${id}` as string);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_AGENTS}/${id}`);
   const data = await res.json();
 
   return {

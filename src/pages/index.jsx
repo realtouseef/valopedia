@@ -1,10 +1,8 @@
 import Head from "next/head";
 import { siteMetaData } from "@utils/siteMetaData";
 import Agents from "@components/Agents";
-import { NextPage, GetStaticProps } from "next";
-import { AgentsTypes } from "@utils/types";
 
-const Home: NextPage<{ characters: AgentsTypes }> = ({ characters }) => {
+const Home = ({ characters }) => {
   const { siteName, siteDescription, siteKeywords, siteAuthor, siteUrl } =
     siteMetaData;
   return (
@@ -25,8 +23,8 @@ const Home: NextPage<{ characters: AgentsTypes }> = ({ characters }) => {
 
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_AGENTS}` as string);
+export const getStaticProps = async () => {
+  const res = await fetch(process.env.NEXT_PUBLIC_AGENTS);
   const data = await res.json();
 
   return {

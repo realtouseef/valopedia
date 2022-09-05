@@ -1,12 +1,6 @@
 import Head from "next/head";
-import type { AgentsTypes } from "@utils/types";
 
-const SEO = ({
-  displayName,
-  description,
-  fullPortrait,
-  developerName,
-}: AgentsTypes) => {
+const SEO = ({ displayName, description, fullPortrait, developerName }) => {
   return (
     <Head>
       <meta charSet="utf-8" />
