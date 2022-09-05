@@ -3,6 +3,7 @@ import SEO from "@components/SEO";
 import Link from "next/link";
 
 const Agent = ({ agent }) => {
+  console.log(agent);
   const {
     displayName,
     description,
@@ -23,23 +24,23 @@ const Agent = ({ agent }) => {
       <br />
 
       <div className="agent_profile">
-        <Image
-          src={fullPortrait}
-          alt={displayName}
-          placeholder="blur"
-          blurDataURL={fullPortrait}
-          objectFit="cover"
-          quality={100}
-          width="760"
-          height="1280"
-          className="agent_portrait"
-        />
-
+        <div className="agent_portrait">
+          <Image
+            src={fullPortrait}
+            alt={displayName}
+            placeholder="blur"
+            blurDataURL={fullPortrait}
+            objectFit="cover"
+            layout="fill"
+            quality={100}
+          />
+        </div>
         <div className="agent_profile_text">
           <p className="displayName">{displayName}</p>
           <p className="description">{description}</p>
 
           <div className="agent_profile_roles">
+            <p className="role_text">Role</p>
             <Image
               src={role.displayIcon}
               alt={role.displayName}
@@ -56,7 +57,7 @@ const Agent = ({ agent }) => {
           <div className="agent_profile_ability">
             {abilities.map((ability) => {
               return (
-                <div key={ability.slot}>
+                <div className="ability_wrapper" key={ability.slot}>
                   <p className="agent_abililty_slot">
                     <p className="ability_span"></p>
                     {ability.slot}
