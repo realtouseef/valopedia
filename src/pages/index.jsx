@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { siteMetaData } from "@utils/siteMetaData";
-import Agents from "@components/Agents";
+import Card from "@components/Card";
 
-const Home = ({ characters }) => {
+const Home = () => {
   const { siteName, siteDescription, siteKeywords, siteAuthor, siteUrl } =
     siteMetaData;
   return (
@@ -16,20 +16,9 @@ const Home = ({ characters }) => {
         <meta name="author" content={`Developed by ${siteAuthor}`} />
         <meta name="robots" content="index, follow" />
       </Head>
-      <Agents characters={characters} />
+      <Card />
     </>
   );
 };
 
 export default Home;
-
-export const getStaticProps = async () => {
-  const res = await fetch(process.env.NEXT_PUBLIC_AGENTS);
-  const data = await res.json();
-
-  return {
-    props: {
-      characters: data,
-    },
-  };
-};

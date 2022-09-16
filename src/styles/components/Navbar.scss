@@ -1,5 +1,5 @@
 nav {
-  @apply h-14 w-full bg-gradient-to-r from-fuchsia-300 via-pink-300 to-purple-300 text-white;
+  @apply h-14 w-full border-b-2;
   @apply flex items-center justify-center;
   a {
     @apply font-bold text-3xl bg-gradient-to-r  from-fuchsia-600 via-pink-600 to-purple-600 text-transparent bg-clip-text;

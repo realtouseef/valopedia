@@ -1,0 +1,7 @@
+.layout {
+  @apply min-h-screen max-w-screen-lg mx-auto flex flex-col;
+
+  .layout_children {
+    @apply flex-grow;
+  }
+}

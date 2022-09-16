@@ -1,0 +1,26 @@
+.card {
+  @apply mt-16;
+
+  .card_wrapper {
+    @apply grid grid-cols-2 gap-4;
+
+    .card_a {
+      @apply bg-gray-50 hover:bg-gray-100 w-max px-6 py-10 rounded-md space-y-4;
+
+      .card_image_wrapper {
+      }
+
+      .card_name {
+        @apply text-gray-800 text-lg font-bold uppercase tracking-wider;
+      }
+
+      .card_desription {
+        @apply text-sm text-gray-600 tracking-wider;
+      }
+
+      .card_explore {
+        @apply text-gray-800 font-semibold text-sm uppercase;
+      }
+    }
+  }
+}
