@@ -1,22 +1,29 @@
 import Image from "next/image";
-import SEO from "@components/SEO";
+import SEO from "@utils/SEO";
+import { siteMetaData } from "@utils/siteMetaData";
+import { useRouter } from "next/router";
 
 const Agent = ({ agent }) => {
   const {
     displayName,
     description,
-    developerName,
     fullPortrait,
+    killfeedPortrait,
     abilities,
     role,
   } = agent.data;
+  console.log(agent);
+
+  const { siteUrl } = siteMetaData;
+  const { asPath } = useRouter();
+
   return (
     <>
       <SEO
-        displayName={displayName}
+        title={displayName}
         description={description}
-        developerName={developerName}
-        fullPortrait={fullPortrait}
+        canonical={`${siteUrl}${asPath}`}
+        OGimageurl={killfeedPortrait}
       />
 
       <div className="agent_profile">
@@ -51,30 +58,30 @@ const Agent = ({ agent }) => {
           </div>
 
           <div className="agent_profile_ability">
-            {abilities.map((ability) => {
-              return (
-                <div className="ability_wrapper" key={ability.slot}>
-                  <p className="agent_abililty_slot">
-                    <p className="ability_span"></p>
-                    {ability.slot}
-                  </p>
+            {abilities.map(
+              ({ slot, displayIcon, displayName, description }) => {
+                return (
+                  <div className="ability_wrapper" key={slot}>
+                    <p className="agent_abililty_slot">
+                      <span className="ability_span"></span>
+                      {slot}
+                    </p>
 
-                  <Image
-                    src={ability.displayIcon}
-                    alt={ability.displayName}
-                    width={50}
-                    height={50}
-                    className="agent_abililty_icons"
-                  />
+                    <Image
+                      src={displayIcon}
+                      alt={displayName}
+                      width={50}
+                      height={50}
+                      className="agent_abililty_icons"
+                    />
 
-                  <p className="agent_abililty_name">{ability.displayName}</p>
+                    <p className="agent_abililty_name">{displayName}</p>
 
-                  <p className="agent_abililty_description">
-                    {ability.description}
-                  </p>
-                </div>
-              );
-            })}
+                    <p className="agent_abililty_description">{description}</p>
+                  </div>
+                );
+              }
+            )}
           </div>
         </div>
       </div>
