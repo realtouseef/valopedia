@@ -2,6 +2,7 @@ import Image from "next/image";
 import SEO from "@utils/SEO";
 import { siteMetaData } from "@utils/siteMetaData";
 import { useRouter } from "next/router";
+import styled from "styled-components";
 
 const Agent = ({ agent }) => {
   const {
@@ -12,7 +13,6 @@ const Agent = ({ agent }) => {
     abilities,
     role,
   } = agent.data;
-  console.log(agent);
 
   const { siteUrl } = siteMetaData;
   const { asPath } = useRouter();
@@ -26,8 +26,8 @@ const Agent = ({ agent }) => {
         OGimageurl={killfeedPortrait}
       />
 
-      <div className="agent_profile">
-        <div className="agent_portrait">
+      <AgentProfile>
+        <AgentPortrait>
           <Image
             src={fullPortrait}
             alt={displayName}
@@ -37,13 +37,13 @@ const Agent = ({ agent }) => {
             layout="fill"
             quality={100}
           />
-        </div>
-        <div className="agent_profile_text">
-          <p className="displayName">{displayName}</p>
-          <p className="description">{description}</p>
+        </AgentPortrait>
+        <AgentTextWrapper>
+          <AgentDisplayName>{displayName}</AgentDisplayName>
+          <AgentDescription>{description}</AgentDescription>
 
-          <div className="agent_profile_roles">
-            <p className="role_text">Role</p>
+          <AgentProfileRoles>
+            <AgentRoleText>Role</AgentRoleText>
             <Image
               src={role.displayIcon}
               alt={role.displayName}
@@ -52,20 +52,20 @@ const Agent = ({ agent }) => {
               className="agent_roles_icons"
             />
 
-            <p className="agent_roles_name">{role.displayName}</p>
+            <AgentRolesName>{role.displayName}</AgentRolesName>
 
-            <p className="agent_roles_description">{role.description}</p>
-          </div>
+            <AgentRolesDescription>{role.description}</AgentRolesDescription>
+          </AgentProfileRoles>
 
-          <div className="agent_profile_ability">
+          <ProfileAbility>
             {abilities.map(
               ({ slot, displayIcon, displayName, description }) => {
                 return (
-                  <div className="ability_wrapper" key={slot}>
-                    <p className="agent_abililty_slot">
-                      <span className="ability_span"></span>
+                  <AbilityWrapper key={slot}>
+                    <AbilitySlot>
+                      <AblilitySpan></AblilitySpan>
                       {slot}
-                    </p>
+                    </AbilitySlot>
 
                     <Image
                       src={displayIcon}
@@ -75,16 +75,16 @@ const Agent = ({ agent }) => {
                       className="agent_abililty_icons"
                     />
 
-                    <p className="agent_abililty_name">{displayName}</p>
+                    <AbilityName>{displayName}</AbilityName>
 
-                    <p className="agent_abililty_description">{description}</p>
-                  </div>
+                    <AbilityDescription>{description}</AbilityDescription>
+                  </AbilityWrapper>
                 );
               }
             )}
-          </div>
-        </div>
-      </div>
+          </ProfileAbility>
+        </AgentTextWrapper>
+      </AgentProfile>
     </>
   );
 };
@@ -115,3 +115,123 @@ export const getStaticProps = async ({ params }) => {
     },
   };
 };
+
+// styling
+
+const AgentProfile = styled.div`
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 1024px) {
+    max-width: 80rem;
+    padding: 0;
+    flex-direction: row;
+  }
+`;
+
+const AgentPortrait = styled.div`
+  position: relative;
+  width: 24rem;
+  height: 450px;
+
+  @media (min-width: 1024px) {
+    width: 768px;
+    height: 1024px;
+  }
+`;
+
+const AgentTextWrapper = styled.div`
+  max-width: 36rem;
+`;
+
+const AgentDisplayName = styled.p`
+  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  color: black;
+`;
+
+const AgentDescription = styled.p`
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: rgb(75 85 99);
+`;
+
+const AgentProfileRoles = styled.div`
+  margin: 3.5rem 0;
+`;
+
+const AgentRoleText = styled.p`
+  width: max-content;
+  margin-bottom: 0.5rem;
+  background-color: rgb(251 207 232);
+  padding: 1px 0.75rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  color: rgb(236 72 153);
+  font-size: 0.75rem;
+  line-height: 1rem;
+`;
+
+const AgentRolesName = styled.p`
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: bold;
+`;
+
+const AgentRolesDescription = styled.p`
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgb(75 85 99);
+`;
+
+const ProfileAbility = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(1fr, 2);
+  }
+`;
+
+const AbilityWrapper = styled.div`
+  margin-bottom: 2.5rem;
+`;
+
+const AbilitySlot = styled.p`
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  background-color: rgb(216 180 254);
+  padding: 1px 0.75rem;
+  border-radius: 1rem;
+`;
+
+const AblilitySpan = styled.span`
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+  background-color: rgb(107 33 168);
+  border-radius: 100%;
+`;
+
+const AbilityName = styled.p`
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+`;
+
+const AbilityDescription = styled.p`
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgb(75 85 99);
+`;
