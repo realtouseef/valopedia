@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
+import { OuterWrapper, InsideWrapper } from "@styles/globalStyles";
 
 const Agents = ({ characters }) => {
   return (
     <>
-      <AgentOutterWrapper>
+      <OuterWrapper>
         {characters.data &&
           characters.data?.map(
             ({
@@ -18,7 +19,7 @@ const Agents = ({ characters }) => {
             }) => {
               return (
                 <Link href={`agent/${uuid}`} key={uuid}>
-                  <AgentInsideWrapper>
+                  <InsideWrapper>
                     {isPlayableCharacter && (
                       <>
                         <AgentImage
@@ -34,49 +35,24 @@ const Agents = ({ characters }) => {
                         </AgentTextWrapper>
                       </>
                     )}
-                  </AgentInsideWrapper>
+                  </InsideWrapper>
                 </Link>
               );
             }
           )}
-      </AgentOutterWrapper>
+      </OuterWrapper>
     </>
   );
 };
 
 export default Agents;
 
-const AgentOutterWrapper = styled.div`
-  max-width: 28rem;
-  margin: 40px auto;
-  display: grid;
-  grid-template-columns: repeat(1fr, 2);
-  gap: 1.25rem;
-
-  @media (min-width: 1024px) {
-    max-width: 64rem;
-    grid-template-colums: repeat(1fr, 2);
-  }
-
-  @media (min-width: 1280px) {
-    grid-template-colums: repeat(1fr, 3);
-  }
-`;
-
-const AgentInsideWrapper = styled.a`
-  width: max-content;
-  padding: 0.5rem 0.75rem;
-  cursor: pointer;
-  user-select: none;
-
-  &:hover {
-    background-color: rgb(243 244 246);
-    border-radius: 1.5rem;
-  }
-`;
-
 const AgentTextWrapper = styled.div`
   max-width: 36rem;
+
+  @media (min-width: 768px) {
+    max-width: 300px;
+  }
 `;
 
 const AgentImage = styled(Image)`
@@ -87,13 +63,14 @@ const AgentName = styled.p`
   font-weight: bold;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  margin: 0;
+  margin: 10px 0 0 0;
 `;
 
 const AgentDescription = styled.p`
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin: 0;
+  padding: 10px 0;
   color: rgb(55 65 81);
 `;
 
@@ -101,6 +78,7 @@ const AgentRole = styled.span`
   background-color: rgb(240 171 252);
   padding: 0.5px 8px;
   border-radius: 0.5rem;
-  font-size: 12px;
+  font-size: 14px;
+  letter-spacing: 1px;
   color: white;
 `;

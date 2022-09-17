@@ -16,7 +16,7 @@ export default Navbar;
 const NavContainer = styled.nav`
   height: 3.5rem;
   width: 100%;
-  border-bottom: 2px;
+  border-bottom: 0.5px #202020 solid;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,4 +29,6 @@ const LinkWrapper = styled.a`
   background-image: linear-gradient(to right, #c026d3, #db2777, #9333ea);
   color: transparent;
   background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;

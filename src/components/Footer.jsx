@@ -24,7 +24,7 @@ export default Footer;
 const FooterContainer = styled.footer`
   height: 2rem;
   width: 100%;
-  border-top: 2px;
+  border-top: 0.5px #202020 solid;
   color: black;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -33,7 +33,9 @@ const FooterContainer = styled.footer`
   text-align: center;
 `;
 
-const FooterRibbon = styled.div``;
+const FooterRibbon = styled.div`
+  padding: 6px 0;
+`;
 
 const FooterLink = styled.a`
   text-decoration-line: underline;

@@ -1,21 +1,21 @@
 import Link from "next/link";
+import { OuterWrapper, InsideWrapper } from "@styles/globalStyles";
 
 const EveryWeapon = ({ weaponsData }) => {
-  console.log(weaponsData);
   return (
     <>
-      <main>
+      <OuterWrapper>
         {weaponsData.map(({ uuid, displayName, displayIcon }) => {
           return (
             <Link href={`/weapons/${uuid}`} key={uuid}>
-              <a>
+              <InsideWrapper>
                 <img src={displayIcon} alt={displayName} />
                 <p>{displayName}</p>
-              </a>
+              </InsideWrapper>
             </Link>
           );
         })}
-      </main>
+      </OuterWrapper>
     </>
   );
 };

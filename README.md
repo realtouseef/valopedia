@@ -15,6 +15,7 @@ yarn dev
 ## TODOs
 
 - [x] SEO
+- [ ] Fix the Weapon page layout
 - [ ] Avoid repeatition
 - [ ] Create a Card component which takes childrens -- Agents, weapons, seasons, etc are shown on the homepage
 - [ ] Cache the pages
@@ -22,3 +23,4 @@ yarn dev
 - [x] Moving main page inside a card that displays "Agents" -- when clicked on it, it goes to another page that shows every agent
 - [ ] Adding more content -- basically (almost) everything that is given by the API
 - [ ] Move to TypeScript in future
+- [x] Move to styled-components
