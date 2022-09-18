@@ -2,6 +2,10 @@
 
 Valorant Encyclopedia
 
+## Live Preview
+
+Not yet deployed
+
 ## API
 
 create a `.env` file and add `NEXT_PUBLIC_AGENTS="https://valorant-api.com/v1/agents"`
@@ -16,6 +20,7 @@ yarn dev
 
 - [x] SEO
 - [ ] Fix the Weapon page layout
+- [ ] Fix the `TypeError: Cannot read properties of null (reading 'displayIcon')`
 - [ ] Avoid repeatition
 - [ ] Create a Card component which takes childrens -- Agents, weapons, seasons, etc are shown on the homepage
 - [ ] Cache the pages

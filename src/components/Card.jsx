@@ -21,19 +21,17 @@ const Card = () => {
     <>
       <CardContainer>
         <CardWrapper>
-          {subCategory.map(
-            ({ id, link, categoryName, description, placeholderImage }) => {
-              return (
-                <Link href={link} key={id}>
-                  <CardLink>
-                    <CardName>{categoryName}</CardName>
-                    <CardDescription>{description}</CardDescription>
-                    <CardExplore>{`explore ${categoryName}`}</CardExplore>
-                  </CardLink>
-                </Link>
-              );
-            }
-          )}
+          {subCategory.map(({ id, link, categoryName, description }) => {
+            return (
+              <Link href={link} key={id}>
+                <CardLink>
+                  <CardName>{categoryName}</CardName>
+                  <CardDescription>{description}</CardDescription>
+                  <CardExplore>{`explore ${categoryName}`}</CardExplore>
+                </CardLink>
+              </Link>
+            );
+          })}
         </CardWrapper>
       </CardContainer>
     </>
@@ -53,7 +51,7 @@ const CardWrapper = styled.div`
 `;
 
 const CardLink = styled.a`
-  border: 0.5px black solid;
+  border: 0.5px var(--border-color) solid;
   max-width: 350px;
   padding: 1.5rem;
   border-radius: 0.375rem;
@@ -61,7 +59,7 @@ const CardLink = styled.a`
   transition: all 200ms ease-in-out;
 
   &:hover {
-    box-shadow: 6px 6px black;
+    box-shadow: 6px 6px var(--box-shadow-color);
     transform: translateX(-5px) translateY(-5px);
   }
 

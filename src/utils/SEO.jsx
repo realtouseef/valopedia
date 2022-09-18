@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { siteMetaData } from "./siteMetaData";
 
-const SEO = ({ title, description, canonical, OGimageurl }) => {
-  const { siteName, twitterHandle } = siteMetaData;
+const SEO = ({ title, description, canonical, OGimageurl, featuredImage }) => {
+  const { siteName, siteUrl, twitterHandle } = siteMetaData;
 
   return (
     <>
@@ -19,17 +19,21 @@ const SEO = ({ title, description, canonical, OGimageurl }) => {
         />
         <meta property="title" content={title} />
         <meta property="og:title" content={title} />
-        <meta property="og:url" content={canonical} />
+        <meta property="og:url" content={`${siteUrl}${canonical}`} />
         <meta property="og:site_name" content={siteName} />
         <meta property="description" content={description} />
         <meta property="og:description" content={description} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="article" />
-        <link rel="canonical" href={canonical} />
-        <meta property="og:image" content={OGimageurl} />
-        <meta property="og:image:width" content="512" />
-        <meta property="og:image:height" content="512" />
-        <meta property="og:image:type" content="image/png" />
+        <link rel="canonical" href={`${siteUrl}${canonical}`} />
+        {featuredImage && (
+          <>
+            <meta property="og:image" content={OGimageurl} />
+            <meta property="og:image:width" content="512" />
+            <meta property="og:image:height" content="512" />
+            <meta property="og:image:type" content="image/png" />
+          </>
+        )}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content={twitterHandle} />
         <meta name="twitter:site" content={twitterHandle} />

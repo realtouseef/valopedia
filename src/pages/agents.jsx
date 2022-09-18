@@ -1,7 +1,7 @@
-import Agents from "@components/EveryAgent";
+import EveryAgent from "@components/EveryAgent";
 
 const agents = ({ characters }) => {
-  return <Agents characters={characters} />;
+  return <EveryAgent characters={characters} />;
 };
 
 export default agents;

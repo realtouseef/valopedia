@@ -24,6 +24,7 @@ const Agent = ({ agent }) => {
         description={description}
         canonical={`${siteUrl}${asPath}`}
         OGimageurl={killfeedPortrait}
+        featuredImage={true}
       />
 
       <AgentProfile>

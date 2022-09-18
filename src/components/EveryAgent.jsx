@@ -2,11 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import { OuterWrapper, InsideWrapper } from "@styles/globalStyles";
+import SEO from "@utils/SEO";
 
-const Agents = ({ characters }) => {
+const EveryAgent = ({ characters }) => {
   return (
     <>
-      <OuterWrapper>
+      <SEO
+        title="Every Agent"
+        description="Every Agent that is available on Valorant alongside skins"
+        canonical={`agents`}
+        featuredImage={false}
+      />
+      <OuterWrapper mdRepeat="2" mdWidth="1fr" lgRepeat="3" lgWidth="1fr">
         {characters.data &&
           characters.data?.map(
             ({
@@ -45,7 +52,7 @@ const Agents = ({ characters }) => {
   );
 };
 
-export default Agents;
+export default EveryAgent;
 
 const AgentTextWrapper = styled.div`
   max-width: 36rem;
