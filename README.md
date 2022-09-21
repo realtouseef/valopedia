@@ -36,6 +36,8 @@ yarn dev
 
 ## TODOs
 
+- [ ] **FIX THE DEPLOYMENT ERROR BEFORE ANYTHING ELSE.**
+
 - [ ] Add Weapon buddies (https://valorant-api.com/v1/buddies) by uuid (https://valorant-api.com/v1/buddies/{buddyUuid})
 - [ ] Add competitive tiers (https://valorant-api.com/v1/competitivetiers) by uuid (https://valorant-api.com/v1/competitivetiers/{competitivetierUuid})
 - [ ] Add Player Cards (https://valorant-api.com/v1/playercards) by uuid (https://valorant-api.com/v1/playercards/{playercardUuid})
