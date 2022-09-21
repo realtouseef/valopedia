@@ -29,34 +29,49 @@ const Weapon = ({ weapon }) => {
         <h1>{displayName}</h1>
         <div>
           {weaponStats && (
-            <WeaponsStatsWrapper>
+            <WeaponsStatsWrapper
+              smrepeat={1}
+              smcols={1}
+              mdrepeat={2}
+              mdcols={1}
+              lgrepeat={3}
+              lgcols={1}
+            >
               <WeaponStatsCard>
-                <StatsCardSpan>Reload Time</StatsCardSpan>
-                <StatsCardPara>
+                <StatsCardSpan spanfs={16}>Reload Time</StatsCardSpan>
+                <StatsCardPara parafs={50}>
                   {`${weaponStats?.reloadTimeSeconds}s`}
                 </StatsCardPara>
               </WeaponStatsCard>
 
               <WeaponStatsCard>
-                <StatsCardSpan>Magazine Size:</StatsCardSpan>
-                <StatsCardPara>{weaponStats?.magazineSize}</StatsCardPara>
+                <StatsCardSpan spanfs={16}>Magazine Size:</StatsCardSpan>
+                <StatsCardPara parafs={50}>
+                  {weaponStats?.magazineSize}
+                </StatsCardPara>
               </WeaponStatsCard>
 
               <WeaponStatsCard>
-                <StatsCardSpan>Fire Rate:</StatsCardSpan>
-                <StatsCardPara>{weaponStats?.fireRate}</StatsCardPara>
+                <StatsCardSpan spanfs={16}>Fire Rate:</StatsCardSpan>
+                <StatsCardPara parafs={50}>
+                  {weaponStats?.fireRate}
+                </StatsCardPara>
               </WeaponStatsCard>
 
               <WeaponStatsCard>
-                <StatsCardSpan>First Bullet Accuracy:</StatsCardSpan>
-                <StatsCardPara>
+                <StatsCardSpan spanfs={16}>
+                  First Bullet Accuracy:
+                </StatsCardSpan>
+                <StatsCardPara parafs={50}>
                   {weaponStats?.firstBulletAccuracy}
                 </StatsCardPara>
               </WeaponStatsCard>
 
               <WeaponStatsCard>
-                <StatsCardSpan>Run Speed Multiplier:</StatsCardSpan>
-                <StatsCardPara>{weaponStats?.runSpeedMultiplier}</StatsCardPara>
+                <StatsCardSpan spanfs={16}>Run Speed Multiplier:</StatsCardSpan>
+                <StatsCardPara parafs={50}>
+                  {weaponStats?.runSpeedMultiplier}
+                </StatsCardPara>
               </WeaponStatsCard>
             </WeaponsStatsWrapper>
           )}
@@ -105,40 +120,45 @@ const ImageWrapper = styled.div`
   height: 17rem;
 `;
 
-const WeaponsStatsWrapper = styled.div`
+export const WeaponsStatsWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: ${(props) =>
+    `repeat(${props.smrepeat} ,${props.smcols}fr)`};
   gap: 10px;
   place-items: center;
   place-content: center;
   margin: 20px 0;
+  padding: 0 20px;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: ${(props) =>
+      `repeat(${props.mdrepeat} ,${props.mdcols}fr)`};
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: ${(props) =>
+      `repeat(${props.lgrepeat} ,${props.lgcols}fr)`};
   }
 `;
 
-const WeaponStatsCard = styled.div`
+export const WeaponStatsCard = styled.div`
   background-color: #f3f3f3;
   height: 120px;
-  width: 250px;
+  width: 230px;
   padding: 20px;
   border-radius: 5px;
   text-align: center;
 `;
 
-const StatsCardSpan = styled.span`
-  font-size: 16px;
+export const StatsCardSpan = styled.span`
+  font-size: ${(props) => `${props.spanfs}px`};
   color: #252525;
   font-weight: 600;
 `;
 
-const StatsCardPara = styled.p`
-  font-size: 50px;
+export const StatsCardPara = styled.p`
+  font-size: ${(props) => `${props.parafs}px`};
   color: black;
   font-weight: bold;
   margin-top: 5px;

@@ -30,7 +30,7 @@ const EveryMap = ({ maps }) => {
                   alt={displayName}
                   width="200"
                   height="200"
-                  objectFit="center"
+                  objectFit="cover"
                 />
                 <DisplayNameMap>{displayName}</DisplayNameMap>
               </InsideWrapper>

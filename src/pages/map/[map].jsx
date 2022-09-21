@@ -1,10 +1,93 @@
+import Image from "next/image";
+import Link from "next/link";
+import { LiftedButton } from "@styles/globalStyles";
+import SEO from "@utils/SEO";
+import { useRouter } from "next/router";
+import { siteMetaData } from "@utils/siteMetaData";
+import {
+  WeaponsStatsWrapper,
+  WeaponStatsCard,
+  StatsCardSpan,
+  StatsCardPara,
+} from "@pages/weapon/[weapon]";
+
 const map = ({ singleMap }) => {
-  const { displayName, listViewIcon } = singleMap;
+  const { displayName, listViewIcon, displayIcon, callouts } = singleMap;
+  const { description, siteUrl } = siteMetaData;
+
+  const { asPath } = useRouter();
+
   return (
     <>
+      <SEO
+        title={`${displayName} Map`}
+        description={description}
+        canonical={`${siteUrl}${asPath}`}
+        OGimageurl={listViewIcon}
+        featuredImage={true}
+      />
+      <Link href="/maps">
+        <LiftedButton fs={16}>Back to Maps Page</LiftedButton>
+      </Link>
+
       <main>
-        <img src={listViewIcon} alt={displayName} />
+        <Image
+          src={listViewIcon}
+          alt={displayName}
+          width={1024}
+          height={200}
+          objectFit="cover"
+        />
         <h1>{displayName}</h1>
+        <div>
+          <Image
+            src={displayIcon}
+            alt={displayName}
+            width={300}
+            height={300}
+            objectFit="contain"
+          />
+        </div>
+        <div>
+          {callouts.map(({ regionName, superRegionName, location }) => {
+            return (
+              <WeaponsStatsWrapper
+                smrepeat={2}
+                smcols={1}
+                mdrepeat={2}
+                mdcols={1}
+                lgrepeat={4}
+                lgcols={1}
+              >
+                <WeaponStatsCard>
+                  <StatsCardSpan spanfs={12}>
+                    Region Name:{" "}
+                    <StatsCardPara parafs={20}>{regionName}</StatsCardPara>
+                  </StatsCardSpan>
+                </WeaponStatsCard>
+                <WeaponStatsCard>
+                  <StatsCardSpan spanfs={12}>
+                    Super Region Name:{" "}
+                    <StatsCardPara parafs={20}>{superRegionName}</StatsCardPara>
+                  </StatsCardSpan>
+                </WeaponStatsCard>
+
+                <WeaponStatsCard>
+                  <StatsCardSpan spanfs={12}>
+                    Situated (x-axis):{" "}
+                    <StatsCardPara parafs={20}>{location.x}</StatsCardPara>
+                  </StatsCardSpan>
+                </WeaponStatsCard>
+                <WeaponStatsCard>
+                  <StatsCardSpan spanfs={12}>
+                    Situated (y-axis):{" "}
+                    <StatsCardPara parafs={20}>{location.x}</StatsCardPara>
+                  </StatsCardSpan>
+                </WeaponStatsCard>
+              </WeaponsStatsWrapper>
+            );
+          })}
+        </div>
       </main>
     </>
   );

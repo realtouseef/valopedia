@@ -1,28 +1,8 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { subCategory } from "./SubCategory";
 
 const Card = () => {
-  const subCategory = [
-    {
-      id: 1,
-      link: "/agents",
-      categoryName: "agents",
-      description: "Get to know the details of each Agent from Valorant",
-    },
-    {
-      id: 2,
-      link: "/weapons",
-      categoryName: "weapons",
-      description: "Every Weapon that is available on Valorant alongside skins",
-    },
-    {
-      id: 3,
-      link: "/maps",
-      categoryName: "maps",
-      description: "Every Map that is available on Valorant",
-    },
-  ];
-
   return (
     <>
       <CardContainer>
@@ -47,13 +27,23 @@ const Card = () => {
 export default Card;
 
 const CardContainer = styled.main`
-  margin-top: 4rem;
+  margin: 4rem 0;
 `;
 
 const CardWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
+  place-content: center;
+  place-items: center;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const CardLink = styled.a`
