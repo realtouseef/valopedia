@@ -5,6 +5,7 @@ Valorant Encyclopedia
 ## Live Preview
 
 Not yet deployed — error is occuring
+
 ![Error is occuring while deploying to vercel](/public/md-images/error.jpeg)
 
 ## API
@@ -12,6 +13,20 @@ Not yet deployed — error is occuring
 Please refer to the `.env.example`
 
 create a `.env` file and `ctrl + c` what's available in `.env.example` then `ctrl + v` into `.env` and save.
+
+## Want to contribute?
+
+clone the repo
+
+```bash
+git clone https://github.com/realtouseef/valopedia.git
+
+cd valopedia
+
+## download the necessary packages
+yarn
+
+```
 
 ## To run dev
 
