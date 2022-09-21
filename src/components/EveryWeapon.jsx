@@ -1,6 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { OuterWrapper, InsideWrapper } from "@styles/globalStyles";
+import {
+  OuterWrapper,
+  InsideWrapper,
+  LiftedButton,
+} from "@styles/globalStyles";
 import styled from "styled-components";
 import SEO from "@utils/SEO";
 
@@ -13,6 +17,10 @@ const EveryWeapon = ({ weaponsData }) => {
         canonical={`weapons`}
         featuredImage={false}
       />
+
+      <Link href="/">
+        <LiftedButton fs={16}>Back to Home Page</LiftedButton>
+      </Link>
 
       <OuterWrapper mdRepeat="1" mdWidth="1fr" lgRepeat="2" lgWidth="1fr">
         {weaponsData.map(({ uuid, displayName, displayIcon, shopData }) => {

@@ -63,13 +63,16 @@ export const InsideWrapper = styled.a`
   }
 `;
 
-export const LiftedButton = styled.a`
+export const LiftedButton = styled.button`
+  margin: 20px 0;
   padding: 10px 20px;
+  font-size: ${(props) => `${props.fs}px`};
   border: 1px solid var(--border-color);
   cursor: pointer;
   border: 0.5px var(--border-color) solid;
   border-radius: 0.5rem;
   transition: all 200ms ease-in-out;
+  background: none;
 
   &:hover {
     box-shadow: 6px 6px var(--box-shadow-color);

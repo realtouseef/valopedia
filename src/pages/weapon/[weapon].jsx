@@ -20,7 +20,7 @@ const Weapon = ({ weapon }) => {
         featuredImage={true}
       />
       <Link href="/weapons">
-        <LiftedButton>Back to Weapons Page</LiftedButton>
+        <LiftedButton fs={16}>Back to Weapons Page</LiftedButton>
       </Link>
       <main>
         <ImageWrapper>
@@ -29,29 +29,43 @@ const Weapon = ({ weapon }) => {
         <h1>{displayName}</h1>
         <div>
           {weaponStats && (
-            <>
-              <div>
-                <span>Reload Time in Seconds</span>
-                <p>{weaponStats?.reloadTimeSeconds}</p>
-              </div>
-              <div>
-                <span>Magazine Size:</span>
-                <p>{weaponStats?.magazineSize}</p>
-              </div>
-              <div>
-                <span>Fire Rate:</span>
-                <p>{weaponStats?.fireRate}</p>
-              </div>
-              <div>
-                <span>First Bullet Accuracy:</span>
-                <p>{weaponStats?.firstBulletAccuracy}</p>
-              </div>
-              <div>
-                <span>Run Speed Multiplier:</span>
-                <p>{weaponStats?.runSpeedMultiplier}</p>
-              </div>
-            </>
+            <WeaponsStatsWrapper>
+              <WeaponStatsCard>
+                <StatsCardSpan>Reload Time</StatsCardSpan>
+                <StatsCardPara>
+                  {`${weaponStats?.reloadTimeSeconds}s`}
+                </StatsCardPara>
+              </WeaponStatsCard>
+
+              <WeaponStatsCard>
+                <StatsCardSpan>Magazine Size:</StatsCardSpan>
+                <StatsCardPara>{weaponStats?.magazineSize}</StatsCardPara>
+              </WeaponStatsCard>
+
+              <WeaponStatsCard>
+                <StatsCardSpan>Fire Rate:</StatsCardSpan>
+                <StatsCardPara>{weaponStats?.fireRate}</StatsCardPara>
+              </WeaponStatsCard>
+
+              <WeaponStatsCard>
+                <StatsCardSpan>First Bullet Accuracy:</StatsCardSpan>
+                <StatsCardPara>
+                  {weaponStats?.firstBulletAccuracy}
+                </StatsCardPara>
+              </WeaponStatsCard>
+
+              <WeaponStatsCard>
+                <StatsCardSpan>Run Speed Multiplier:</StatsCardSpan>
+                <StatsCardPara>{weaponStats?.runSpeedMultiplier}</StatsCardPara>
+              </WeaponStatsCard>
+            </WeaponsStatsWrapper>
           )}
+
+          <Link href="/weapon/skin">
+            <LiftedButton fs={25}>
+              {`Check out ${displayName}'s Skins`}
+            </LiftedButton>
+          </Link>
         </div>
       </main>
     </>
@@ -91,4 +105,46 @@ const ImageWrapper = styled.div`
   height: 17rem;
 `;
 
-const BackButton = styled.a``;
+const WeaponsStatsWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  place-items: center;
+  place-content: center;
+  margin: 20px 0;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+`;
+
+const WeaponStatsCard = styled.div`
+  background-color: #f3f3f3;
+  height: 120px;
+  width: 250px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+`;
+
+const StatsCardSpan = styled.span`
+  font-size: 16px;
+  color: #252525;
+  font-weight: 600;
+`;
+
+const StatsCardPara = styled.p`
+  font-size: 50px;
+  color: black;
+  font-weight: bold;
+  margin-top: 5px;
+`;
+
+const StatsLink = styled(Link)`
+  font-size: 25px;
+  color: black;
+`;

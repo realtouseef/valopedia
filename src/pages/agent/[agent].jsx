@@ -3,6 +3,8 @@ import SEO from "@utils/SEO";
 import { siteMetaData } from "@utils/siteMetaData";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import { LiftedButton } from "@styles/globalStyles";
+import Link from "next/link";
 
 const Agent = ({ agent }) => {
   const {
@@ -26,6 +28,10 @@ const Agent = ({ agent }) => {
         OGimageurl={killfeedPortrait}
         featuredImage={true}
       />
+
+      <Link href="/agents">
+        <LiftedButton fs={16}>Back to Agents Page</LiftedButton>
+      </Link>
 
       <AgentProfile>
         <AgentPortrait>

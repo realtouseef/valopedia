@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import { OuterWrapper, InsideWrapper } from "@styles/globalStyles";
+import {
+  OuterWrapper,
+  InsideWrapper,
+  LiftedButton,
+} from "@styles/globalStyles";
 import SEO from "@utils/SEO";
 
 const EveryAgent = ({ characters }) => {
@@ -13,6 +17,11 @@ const EveryAgent = ({ characters }) => {
         canonical={`agents`}
         featuredImage={false}
       />
+
+      <Link href="/">
+        <LiftedButton fs={16}>Back to Home Page</LiftedButton>
+      </Link>
+
       <OuterWrapper mdRepeat="2" mdWidth="1fr" lgRepeat="3" lgWidth="1fr">
         {characters.data &&
           characters.data?.map(
