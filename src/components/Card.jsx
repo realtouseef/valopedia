@@ -15,6 +15,12 @@ const Card = () => {
       categoryName: "weapons",
       description: "Every Weapon that is available on Valorant alongside skins",
     },
+    {
+      id: 3,
+      link: "/maps",
+      categoryName: "maps",
+      description: "Every Map that is available on Valorant",
+    },
   ];
 
   return (

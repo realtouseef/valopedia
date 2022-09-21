@@ -1,4 +1,4 @@
-# Valopedia
+# Valopedia 👾
 
 Valorant Encyclopedia
 
