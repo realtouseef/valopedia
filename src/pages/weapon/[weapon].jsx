@@ -75,12 +75,6 @@ const Weapon = ({ weapon }) => {
               </WeaponStatsCard>
             </WeaponsStatsWrapper>
           )}
-
-          <Link href="/weapon/skin">
-            <LiftedButton fs={25}>
-              {`Check out ${displayName}'s Skins`}
-            </LiftedButton>
-          </Link>
         </div>
       </main>
     </>

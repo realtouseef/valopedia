@@ -52,8 +52,6 @@ export default EveryWeapon;
 
 const ImageWrapper = styled.div`
   position: relative;
-  /* width: 512px;
-  height: 10rem; */
   width: 512px;
   height: 10rem;
 `;
