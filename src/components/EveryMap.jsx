@@ -32,7 +32,7 @@ const EveryMap = ({ maps }) => {
                   height="200"
                   objectFit="center"
                 />
-                <p>{displayName}</p>
+                <DisplayNameMap>{displayName}</DisplayNameMap>
               </InsideWrapper>
             </Link>
           );
@@ -46,4 +46,10 @@ export default EveryMap;
 
 const StyledImage = styled(Image)`
   border-radius: 20px;
+`;
+
+const DisplayNameMap = styled.p`
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 20px;
 `;
