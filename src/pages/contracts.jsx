@@ -1,5 +1,5 @@
-const contracts = () => {
-  return <div>contracts</div>;
+const Contracts = () => {
+  return <div>Contracts</div>;
 };
 
-export default contracts;
+export default Contracts;

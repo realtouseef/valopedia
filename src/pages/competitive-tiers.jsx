@@ -1,5 +1,5 @@
-const competitive = () => {
-  return <div>competitive</div>;
+const Competitive = () => {
+  return <div>Competitive</div>;
 };
 
-export default competitive;
+export default Competitive;

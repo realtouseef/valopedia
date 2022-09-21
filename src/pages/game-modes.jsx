@@ -1,5 +1,5 @@
-const modes = () => {
-  return <div>modes</div>;
+const Modes = () => {
+  return <div>Modes</div>;
 };
 
-export default modes;
+export default Modes;

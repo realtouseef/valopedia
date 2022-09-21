@@ -1,10 +1,10 @@
 import EveryAgent from "@components/EveryAgent";
 
-const agents = ({ characters }) => {
+const Agents = ({ characters }) => {
   return <EveryAgent characters={characters} />;
 };
 
-export default agents;
+export default Agents;
 
 export const getStaticProps = async () => {
   const res = await fetch(process.env.NEXT_PUBLIC_AGENTS);

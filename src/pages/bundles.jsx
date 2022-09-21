@@ -1,5 +1,5 @@
-const bundles = () => {
-  return <div>bundles</div>;
+const Bundles = () => {
+  return <div>Bundles</div>;
 };
 
-export default bundles;
+export default Bundles;

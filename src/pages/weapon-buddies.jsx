@@ -1,5 +1,5 @@
-const buddies = () => {
-  return <div>buddies</div>;
+const Buddies = () => {
+  return <div>Buddies</div>;
 };
 
-export default buddies;
+export default Buddies;

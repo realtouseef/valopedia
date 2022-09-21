@@ -1,5 +1,5 @@
-const playerCards = () => {
-  return <div>playerCards</div>;
+const PlayerCards = () => {
+  return <div>PlayerCards</div>;
 };
 
-export default playerCards;
+export default PlayerCards;

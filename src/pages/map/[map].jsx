@@ -11,7 +11,7 @@ import {
   StatsCardPara,
 } from "@pages/weapon/[weapon]";
 
-const map = ({ singleMap }) => {
+const Map = ({ singleMap }) => {
   const { displayName, listViewIcon, displayIcon, callouts } = singleMap;
   const { description, siteUrl } = siteMetaData;
 
@@ -50,6 +50,7 @@ const map = ({ singleMap }) => {
         </div>
         <div>
           {callouts.map(({ regionName, superRegionName, location }) => {
+            const uuid = Math.round(Math.random() * location.x) + 1;
             return (
               <WeaponsStatsWrapper
                 smrepeat={2}
@@ -58,6 +59,7 @@ const map = ({ singleMap }) => {
                 mdcols={1}
                 lgrepeat={4}
                 lgcols={1}
+                key={uuid}
               >
                 <WeaponStatsCard>
                   <StatsCardSpan spanfs={12}>
@@ -93,7 +95,7 @@ const map = ({ singleMap }) => {
   );
 };
 
-export default map;
+export default Map;
 
 export const getStaticPaths = async () => {
   const res = await fetch(process.env.NEXT_PUBLIC_MAPS);

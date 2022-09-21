@@ -1,6 +1,6 @@
 import EveryMap from "@components/EveryMap";
 
-const maps = ({ maps }) => {
+const Maps = ({ maps }) => {
   return (
     <>
       <EveryMap maps={maps} />
@@ -8,7 +8,7 @@ const maps = ({ maps }) => {
   );
 };
 
-export default maps;
+export default Maps;
 
 export const getStaticProps = async () => {
   const res = await fetch(process.env.NEXT_PUBLIC_MAPS);

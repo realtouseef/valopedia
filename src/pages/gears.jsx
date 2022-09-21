@@ -1,5 +1,5 @@
-const gears = () => {
-  return <div>gears</div>;
+const Gears = () => {
+  return <div>Gears</div>;
 };
 
-export default gears;
+export default Gears;

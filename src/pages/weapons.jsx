@@ -1,10 +1,10 @@
 import EveryWeapon from "@components/EveryWeapon";
 
-const weapons = ({ weaponsData }) => {
+const Weapons = ({ weaponsData }) => {
   return <EveryWeapon weaponsData={weaponsData} />;
 };
 
-export default weapons;
+export default Weapons;
 
 export const getStaticProps = async () => {
   const res = await fetch(process.env.NEXT_PUBLIC_WEAPONS);

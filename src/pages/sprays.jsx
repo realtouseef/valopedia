@@ -1,5 +1,5 @@
-const sprays = () => {
-  return <div>sprays</div>;
+const Sprays = () => {
+  return <div>SprayS</div>;
 };
 
-export default sprays;
+export default Sprays;
