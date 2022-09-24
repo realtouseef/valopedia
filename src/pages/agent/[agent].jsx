@@ -52,7 +52,7 @@ const Agent = ({ agent }) => {
           <AgentProfileRoles>
             <AgentRoleText>Role</AgentRoleText>
             <Image
-              src={role.displayIcon}
+              src={role?.displayIcon}
               alt={role.displayName}
               width="30"
               height="30"
@@ -66,7 +66,7 @@ const Agent = ({ agent }) => {
 
           <ProfileAbility>
             {abilities.map(
-              ({ slot, displayIcon, displayName, description }) => {
+              ({ slot, displayIcon = "", displayName, description }) => {
                 return (
                   <AbilityWrapper key={slot}>
                     <AbilitySlot>
