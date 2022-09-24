@@ -13,7 +13,6 @@ import {
 import styled from "styled-components";
 
 const Map = ({ singleMap }) => {
-  const { displayName, displayIcon, callouts } = singleMap;
   const { description, siteUrl } = siteMetaData;
   const { asPath } = useRouter();
 
@@ -22,7 +21,7 @@ const Map = ({ singleMap }) => {
   return (
     <>
       <SEO
-        title={`${displayName} Map`}
+        title={`${singleMap?.displayName} Map`}
         description={description}
         canonical={`${siteUrl}${asPath}`}
         OGimageurl={singleMap?.listViewIcon}
@@ -35,23 +34,21 @@ const Map = ({ singleMap }) => {
       <main>
         <Image
           src={singleMap?.listViewIcon}
-          alt={displayName}
+          alt={singleMap?.displayName}
           width={1024}
           height={200}
           objectFit="cover"
         />
 
-        <h1>{displayName}</h1>
+        <h1>{singleMap?.displayName}</h1>
         <div>
-          {displayIcon && (
-            <Image
-              src={displayIcon}
-              alt={displayName}
-              width={300}
-              height={300}
-              objectFit="contain"
-            />
-          )}
+          <Image
+            src={singleMap?.displayIcon}
+            alt={singleMap?.displayName}
+            width={300}
+            height={300}
+            objectFit="contain"
+          />
         </div>
         <div>
           {callouts ? (
@@ -99,7 +96,8 @@ const Map = ({ singleMap }) => {
             })
           ) : (
             <NoData>
-              No data is apparently available for <strong>{displayName}</strong>
+              No data is apparently available for{" "}
+              <strong>{singleMap?.displayName}</strong>
             </NoData>
           )}
         </div>
