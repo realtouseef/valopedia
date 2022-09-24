@@ -16,8 +16,6 @@ const Map = ({ singleMap }) => {
   const { description, siteUrl } = siteMetaData;
   const { asPath } = useRouter();
 
-  const listViewIconAvailable = listViewIcon && listViewIcon;
-
   return (
     <>
       <SEO
