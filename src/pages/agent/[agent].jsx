@@ -53,15 +53,15 @@ const Agent = ({ agent }) => {
             <AgentRoleText>Role</AgentRoleText>
             <Image
               src={role?.displayIcon}
-              alt={role.displayName}
+              alt={role?.displayName}
               width="30"
               height="30"
               className="agent_roles_icons"
             />
 
-            <AgentRolesName>{role.displayName}</AgentRolesName>
+            <AgentRolesName>{role?.displayName}</AgentRolesName>
 
-            <AgentRolesDescription>{role.description}</AgentRolesDescription>
+            <AgentRolesDescription>{role?.description}</AgentRolesDescription>
           </AgentProfileRoles>
 
           <ProfileAbility>
