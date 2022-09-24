@@ -49,7 +49,7 @@ const Map = ({ singleMap }) => {
           />
         </div>
         <div>
-          {callouts.map(({ regionName, superRegionName, location }) => {
+          {callouts?.map(({ regionName, superRegionName, location }) => {
             const uuid = Math.round(Math.random() * location.x) + 1;
             return (
               <WeaponsStatsWrapper
