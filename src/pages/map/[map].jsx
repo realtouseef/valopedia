@@ -17,13 +17,15 @@ const Map = ({ singleMap }) => {
   const { description, siteUrl } = siteMetaData;
   const { asPath } = useRouter();
 
+  const listViewIconAvailable = listViewIcon && listViewIcon;
+
   return (
     <>
       <SEO
         title={`${displayName} Map`}
         description={description}
         canonical={`${siteUrl}${asPath}`}
-        OGimageurl={listViewIcon}
+        OGimageurl={listViewIconAvailable}
         featuredImage={true}
       />
       <Link href="/maps">
@@ -31,15 +33,13 @@ const Map = ({ singleMap }) => {
       </Link>
 
       <main>
-        {listViewIcon && (
-          <Image
-            src={listViewIcon}
-            alt={displayName}
-            width={1024}
-            height={200}
-            objectFit="cover"
-          />
-        )}
+        <Image
+          src={listViewIconAvailable}
+          alt={displayName}
+          width={1024}
+          height={200}
+          objectFit="cover"
+        />
 
         <h1>{displayName}</h1>
         <div>
