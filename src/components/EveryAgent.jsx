@@ -36,7 +36,7 @@ const EveryAgent = ({ characters }) => {
               return (
                 <Link href={`agent/${uuid}`} key={uuid}>
                   <InsideWrapper>
-                    {isPlayableCharacter && (
+                    {isPlayableCharacter ? (
                       <>
                         <AgentImage
                           src={displayIcon}
@@ -50,7 +50,7 @@ const EveryAgent = ({ characters }) => {
                           <AgentRole>{role?.displayName}</AgentRole>
                         </AgentTextWrapper>
                       </>
-                    )}
+                    ) : null}
                   </InsideWrapper>
                 </Link>
               );

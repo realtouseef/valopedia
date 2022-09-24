@@ -21,7 +21,7 @@ const EveryMap = ({ maps }) => {
         <LiftedButton fs={16}>Back to Home Page</LiftedButton>
       </Link>
       <OuterWrapper mdRepeat="2" mdWidth="1fr" lgRepeat="3" lgWidth="1fr">
-        {maps.map(({ displayName, uuid, splash }) => {
+        {maps?.map(({ displayName, uuid, splash }) => {
           return (
             <Link href={`map/${uuid}`} key={uuid}>
               <InsideWrapper>

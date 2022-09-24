@@ -10,18 +10,20 @@ import {
   StatsCardSpan,
   StatsCardPara,
 } from "@pages/weapon/[weapon]";
+import styled from "styled-components";
 
 const Map = ({ singleMap }) => {
+  const { listViewIcon, displayName, displayIcon, callouts } = singleMap;
   const { description, siteUrl } = siteMetaData;
   const { asPath } = useRouter();
 
   return (
     <>
       <SEO
-        title={`${singleMap?.displayName} Map`}
+        title={`${displayName} Map`}
         description={description}
         canonical={`${siteUrl}${asPath}`}
-        OGimageurl={singleMap?.listViewIcon}
+        OGimageurl={listViewIcon}
         featuredImage={true}
       />
       <Link href="/maps">
@@ -30,25 +32,27 @@ const Map = ({ singleMap }) => {
 
       <main>
         <Image
-          src={singleMap?.listViewIcon}
-          alt={singleMap?.displayName}
+          src={listViewIcon}
+          alt={displayName}
           width={1024}
           height={200}
           objectFit="cover"
         />
-        <h1>{singleMap?.displayName}</h1>
+        <h1>{displayName}</h1>
         <div>
-          <Image
-            src={singleMap?.displayIcon}
-            alt={singleMap?.displayName}
-            width={300}
-            height={300}
-            objectFit="contain"
-          />
+          {displayIcon && (
+            <Image
+              src={displayIcon}
+              alt={displayName}
+              width={300}
+              height={300}
+              objectFit="contain"
+            />
+          )}
         </div>
         <div>
-          {singleMap?.callouts.map(
-            ({ regionName, superRegionName, location }) => {
+          {callouts ? (
+            callouts.map(({ regionName, superRegionName, location }) => {
               const uuid = Math.round(Math.random() * location.x) + 1;
               return (
                 <WeaponsStatsWrapper
@@ -89,7 +93,11 @@ const Map = ({ singleMap }) => {
                   </WeaponStatsCard>
                 </WeaponsStatsWrapper>
               );
-            }
+            })
+          ) : (
+            <NoData>
+              No data is apparently available for <strong>{displayName}</strong>
+            </NoData>
           )}
         </div>
       </main>
@@ -124,3 +132,9 @@ export const getStaticProps = async ({ params }) => {
     },
   };
 };
+
+const NoData = styled.p`
+  margin-top: 20px;
+  font-size: 20px;
+  font-style: italic;
+`;

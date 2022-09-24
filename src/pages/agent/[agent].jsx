@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Agent = ({ agent }) => {
   const {
-    displayName,
+    displayName = " ",
     description,
     fullPortrait,
     killfeedPortrait,
@@ -75,7 +75,7 @@ const Agent = ({ agent }) => {
                     </AbilitySlot>
 
                     <Image
-                      src={displayIcon || " "}
+                      src={displayIcon}
                       alt={displayName}
                       width={50}
                       height={50}

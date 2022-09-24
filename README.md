@@ -34,6 +34,12 @@ yarn
 yarn dev
 ```
 
+## Priority TODOs
+
+- [x] `maps/ee613ee9-28b7-4beb-9666-08db13bb2244` error is `The Range` and doesn't have a `displayIcon` — possible fix is to use ternary operator
+
+- [ ] `TypeError: Cannot read properties of null (reading 'default')` is the `Sova` with `isPlayableCharacter = false` id: `/agent/ded3520f-4264-bfed-162d-b080e2abccf9` — possible fix is to use ternary operator
+
 ## TODOs
 
 - [ ] **FIX THE DEPLOYMENT ERROR BEFORE ANYTHING ELSE.**
