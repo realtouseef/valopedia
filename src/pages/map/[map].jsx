@@ -31,13 +31,16 @@ const Map = ({ singleMap }) => {
       </Link>
 
       <main>
-        <Image
-          src={listViewIcon}
-          alt={displayName}
-          width={1024}
-          height={200}
-          objectFit="cover"
-        />
+        {listViewIcon && (
+          <Image
+            src={listViewIcon}
+            alt={displayName}
+            width={1024}
+            height={200}
+            objectFit="cover"
+          />
+        )}
+
         <h1>{displayName}</h1>
         <div>
           {displayIcon && (
