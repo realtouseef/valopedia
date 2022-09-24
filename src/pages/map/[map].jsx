@@ -13,7 +13,7 @@ import {
 import styled from "styled-components";
 
 const Map = ({ singleMap }) => {
-  const { listViewIcon, displayName, displayIcon, callouts } = singleMap;
+  const { displayName, displayIcon, callouts } = singleMap;
   const { description, siteUrl } = siteMetaData;
   const { asPath } = useRouter();
 
@@ -25,7 +25,7 @@ const Map = ({ singleMap }) => {
         title={`${displayName} Map`}
         description={description}
         canonical={`${siteUrl}${asPath}`}
-        OGimageurl={listViewIconAvailable}
+        OGimageurl={singleMap?.listViewIcon}
         featuredImage={true}
       />
       <Link href="/maps">
@@ -34,7 +34,7 @@ const Map = ({ singleMap }) => {
 
       <main>
         <Image
-          src={listViewIconAvailable}
+          src={singleMap?.listViewIcon}
           alt={displayName}
           width={1024}
           height={200}
