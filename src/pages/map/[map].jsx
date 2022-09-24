@@ -12,18 +12,16 @@ import {
 } from "@pages/weapon/[weapon]";
 
 const Map = ({ singleMap }) => {
-  const { displayName, listViewIcon, displayIcon, callouts } = singleMap;
   const { description, siteUrl } = siteMetaData;
-
   const { asPath } = useRouter();
 
   return (
     <>
       <SEO
-        title={`${displayName} Map`}
+        title={`${singleMap?.displayName} Map`}
         description={description}
         canonical={`${siteUrl}${asPath}`}
-        OGimageurl={listViewIcon}
+        OGimageurl={singleMap?.listViewIcon}
         featuredImage={true}
       />
       <Link href="/maps">
@@ -32,63 +30,67 @@ const Map = ({ singleMap }) => {
 
       <main>
         <Image
-          src={listViewIcon}
-          alt={displayName}
+          src={singleMap?.listViewIcon}
+          alt={singleMap?.displayName}
           width={1024}
           height={200}
           objectFit="cover"
         />
-        <h1>{displayName}</h1>
+        <h1>{singleMap?.displayName}</h1>
         <div>
           <Image
-            src={displayIcon}
-            alt={displayName}
+            src={singleMap?.displayIcon}
+            alt={singleMap?.displayName}
             width={300}
             height={300}
             objectFit="contain"
           />
         </div>
         <div>
-          {callouts?.map(({ regionName, superRegionName, location }) => {
-            const uuid = Math.round(Math.random() * location.x) + 1;
-            return (
-              <WeaponsStatsWrapper
-                smrepeat={2}
-                smcols={1}
-                mdrepeat={2}
-                mdcols={1}
-                lgrepeat={4}
-                lgcols={1}
-                key={uuid}
-              >
-                <WeaponStatsCard>
-                  <StatsCardSpan spanfs={12}>
-                    Region Name:{" "}
-                    <StatsCardPara parafs={20}>{regionName}</StatsCardPara>
-                  </StatsCardSpan>
-                </WeaponStatsCard>
-                <WeaponStatsCard>
-                  <StatsCardSpan spanfs={12}>
-                    Super Region Name:{" "}
-                    <StatsCardPara parafs={20}>{superRegionName}</StatsCardPara>
-                  </StatsCardSpan>
-                </WeaponStatsCard>
+          {singleMap?.callouts.map(
+            ({ regionName, superRegionName, location }) => {
+              const uuid = Math.round(Math.random() * location.x) + 1;
+              return (
+                <WeaponsStatsWrapper
+                  smrepeat={2}
+                  smcols={1}
+                  mdrepeat={2}
+                  mdcols={1}
+                  lgrepeat={4}
+                  lgcols={1}
+                  key={uuid}
+                >
+                  <WeaponStatsCard>
+                    <StatsCardSpan spanfs={12}>
+                      Region Name:{" "}
+                      <StatsCardPara parafs={20}>{regionName}</StatsCardPara>
+                    </StatsCardSpan>
+                  </WeaponStatsCard>
+                  <WeaponStatsCard>
+                    <StatsCardSpan spanfs={12}>
+                      Super Region Name:{" "}
+                      <StatsCardPara parafs={20}>
+                        {superRegionName}
+                      </StatsCardPara>
+                    </StatsCardSpan>
+                  </WeaponStatsCard>
 
-                <WeaponStatsCard>
-                  <StatsCardSpan spanfs={12}>
-                    Situated (x-axis):{" "}
-                    <StatsCardPara parafs={20}>{location.x}</StatsCardPara>
-                  </StatsCardSpan>
-                </WeaponStatsCard>
-                <WeaponStatsCard>
-                  <StatsCardSpan spanfs={12}>
-                    Situated (y-axis):{" "}
-                    <StatsCardPara parafs={20}>{location.x}</StatsCardPara>
-                  </StatsCardSpan>
-                </WeaponStatsCard>
-              </WeaponsStatsWrapper>
-            );
-          })}
+                  <WeaponStatsCard>
+                    <StatsCardSpan spanfs={12}>
+                      Situated (x-axis):{" "}
+                      <StatsCardPara parafs={20}>{location.x}</StatsCardPara>
+                    </StatsCardSpan>
+                  </WeaponStatsCard>
+                  <WeaponStatsCard>
+                    <StatsCardSpan spanfs={12}>
+                      Situated (y-axis):{" "}
+                      <StatsCardPara parafs={20}>{location.x}</StatsCardPara>
+                    </StatsCardSpan>
+                  </WeaponStatsCard>
+                </WeaponsStatsWrapper>
+              );
+            }
+          )}
         </div>
       </main>
     </>
