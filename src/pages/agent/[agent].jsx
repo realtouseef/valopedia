@@ -14,7 +14,7 @@ const Agent = ({ agent }) => {
     killfeedPortrait,
     abilities,
     role,
-  } = agent.data;
+  } = agent?.data;
 
   const { siteUrl } = siteMetaData;
   const { asPath } = useRouter();
@@ -66,7 +66,7 @@ const Agent = ({ agent }) => {
 
           <ProfileAbility>
             {abilities.map(
-              ({ slot, displayIcon = "", displayName, description }) => {
+              ({ slot, displayIcon = null, displayName, description }) => {
                 return (
                   <AbilityWrapper key={slot}>
                     <AbilitySlot>

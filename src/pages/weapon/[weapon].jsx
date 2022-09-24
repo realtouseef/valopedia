@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { LiftedButton } from "@styles/globalStyles";
 
 const Weapon = ({ weapon }) => {
-  const { displayName, displayIcon, weaponStats, shopData } = weapon.data;
+  const { displayName, displayIcon, weaponStats, shopData } = weapon?.data;
   const { asPath } = useRouter();
   return (
     <>
