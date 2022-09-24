@@ -49,49 +49,51 @@ const Map = ({ singleMap }) => {
           />
         </div>
         <div>
-          {callouts ? (
-            callouts.map(({ regionName, superRegionName, location }) => {
-              const uuid = Math.round(Math.random() * location.x) + 1;
-              return (
-                <WeaponsStatsWrapper
-                  smrepeat={2}
-                  smcols={1}
-                  mdrepeat={2}
-                  mdcols={1}
-                  lgrepeat={4}
-                  lgcols={1}
-                  key={uuid}
-                >
-                  <WeaponStatsCard>
-                    <StatsCardSpan spanfs={12}>
-                      Region Name:{" "}
-                      <StatsCardPara parafs={20}>{regionName}</StatsCardPara>
-                    </StatsCardSpan>
-                  </WeaponStatsCard>
-                  <WeaponStatsCard>
-                    <StatsCardSpan spanfs={12}>
-                      Super Region Name:{" "}
-                      <StatsCardPara parafs={20}>
-                        {superRegionName}
-                      </StatsCardPara>
-                    </StatsCardSpan>
-                  </WeaponStatsCard>
+          {singleMap?.callouts ? (
+            singleMap?.callouts.map(
+              ({ regionName, superRegionName, location }) => {
+                const uuid = Math.round(Math.random() * location.x) + 1;
+                return (
+                  <WeaponsStatsWrapper
+                    smrepeat={2}
+                    smcols={1}
+                    mdrepeat={2}
+                    mdcols={1}
+                    lgrepeat={4}
+                    lgcols={1}
+                    key={uuid}
+                  >
+                    <WeaponStatsCard>
+                      <StatsCardSpan spanfs={12}>
+                        Region Name:{" "}
+                        <StatsCardPara parafs={20}>{regionName}</StatsCardPara>
+                      </StatsCardSpan>
+                    </WeaponStatsCard>
+                    <WeaponStatsCard>
+                      <StatsCardSpan spanfs={12}>
+                        Super Region Name:{" "}
+                        <StatsCardPara parafs={20}>
+                          {superRegionName}
+                        </StatsCardPara>
+                      </StatsCardSpan>
+                    </WeaponStatsCard>
 
-                  <WeaponStatsCard>
-                    <StatsCardSpan spanfs={12}>
-                      Situated (x-axis):{" "}
-                      <StatsCardPara parafs={20}>{location.x}</StatsCardPara>
-                    </StatsCardSpan>
-                  </WeaponStatsCard>
-                  <WeaponStatsCard>
-                    <StatsCardSpan spanfs={12}>
-                      Situated (y-axis):{" "}
-                      <StatsCardPara parafs={20}>{location.x}</StatsCardPara>
-                    </StatsCardSpan>
-                  </WeaponStatsCard>
-                </WeaponsStatsWrapper>
-              );
-            })
+                    <WeaponStatsCard>
+                      <StatsCardSpan spanfs={12}>
+                        Situated (x-axis):{" "}
+                        <StatsCardPara parafs={20}>{location.x}</StatsCardPara>
+                      </StatsCardSpan>
+                    </WeaponStatsCard>
+                    <WeaponStatsCard>
+                      <StatsCardSpan spanfs={12}>
+                        Situated (y-axis):{" "}
+                        <StatsCardPara parafs={20}>{location.x}</StatsCardPara>
+                      </StatsCardSpan>
+                    </WeaponStatsCard>
+                  </WeaponsStatsWrapper>
+                );
+              }
+            )
           ) : (
             <NoData>
               No data is apparently available for{" "}
