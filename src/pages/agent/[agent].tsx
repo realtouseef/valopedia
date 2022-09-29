@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { LiftedButton } from "@styles/globalStyles";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { SingleAgentType } from "@utils/types";
+import { SingleAgentType } from "@utils/types/AgentTypes";
 
 const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
   const {

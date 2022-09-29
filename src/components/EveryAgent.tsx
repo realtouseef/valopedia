@@ -7,7 +7,7 @@ import {
   LiftedButton,
 } from "@styles/globalStyles";
 import SEO from "@utils/SEO";
-import { AgentsTypes } from "@utils/types";
+import { AgentsTypes } from "@utils/types/AgentTypes";
 
 const EveryAgent: React.FunctionComponent<AgentsTypes> = ({ characters }) => {
   return (

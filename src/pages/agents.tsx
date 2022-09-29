@@ -1,7 +1,7 @@
 import EveryAgent from "@components/EveryAgent";
-import { AgentTypes } from "@utils/types";
+import { AgentsTypes } from "@utils/types/AgentTypes";
 
-const Agents = ({ characters }: AgentTypes) => {
+const Agents = ({ characters }: AgentsTypes) => {
   return <EveryAgent characters={characters} />;
 };
 

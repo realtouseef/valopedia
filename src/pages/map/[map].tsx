@@ -11,16 +11,18 @@ import {
   StatsCardPara,
 } from "@pages/weapon/[weapon]";
 import styled from "styled-components";
+import { SingleMapTypes } from "@utils/types/MapTypes";
+import { GetStaticPaths, GetStaticProps } from "next";
 
-const Map = ({ singleMap }) => {
-  const { description, siteUrl } = siteMetaData;
+const Map: React.FunctionComponent<SingleMapTypes> = ({ singleMap }) => {
+  const { siteDescription, siteUrl } = siteMetaData;
   const { asPath } = useRouter();
 
   return (
     <>
       <SEO
         title={`${singleMap?.displayName} Map`}
-        description={description}
+        description={siteDescription}
         canonical={`${siteUrl}${asPath}`}
         OGimageurl={singleMap?.listViewIcon}
         featuredImage={true}
@@ -40,7 +42,7 @@ const Map = ({ singleMap }) => {
 
         <h1>{singleMap?.displayName}</h1>
         <div>
-          {singleMap?.display ? (
+          {singleMap?.displayIcon ? (
             <Image
               src={singleMap?.displayIcon}
               alt={singleMap?.displayName}
@@ -91,7 +93,7 @@ const Map = ({ singleMap }) => {
                     <WeaponStatsCard>
                       <StatsCardSpan spanfs={12}>
                         Situated (y-axis):{" "}
-                        <StatsCardPara parafs={20}>{location.x}</StatsCardPara>
+                        <StatsCardPara parafs={20}>{location.y}</StatsCardPara>
                       </StatsCardSpan>
                     </WeaponStatsCard>
                   </WeaponsStatsWrapper>
@@ -112,12 +114,14 @@ const Map = ({ singleMap }) => {
 
 export default Map;
 
-export const getStaticPaths = async () => {
-  const res = await fetch(process.env.NEXT_PUBLIC_MAPS);
+type PathsType = { uuid: string };
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await fetch(process.env.NEXT_PUBLIC_MAPS as string);
   const data = await res.json();
 
-  const paths = data.data.map((m) => {
-    return { params: { map: m.uuid } };
+  const paths = data.data.map(({ uuid }: PathsType) => {
+    return { params: { map: uuid } };
   });
 
   return {
@@ -126,8 +130,8 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
-  const mapId = params.map;
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const mapId = params?.map;
   const res = await fetch(`${process.env.NEXT_PUBLIC_MAPS}/${mapId}`);
   const data = await res.json();
 

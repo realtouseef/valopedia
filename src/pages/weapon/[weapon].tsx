@@ -108,13 +108,30 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
+type WeaponsStatsWrapperType = {
+  smrepeat: number;
+  smcols: number;
+  mdrepeat: number;
+  mdcols: number;
+  lgrepeat: number;
+  lgcols: number;
+};
+
+type StatsCardSpanType = {
+  spanfs: number;
+};
+
+type StatsCardParaType = {
+  parafs: number;
+};
+
 const ImageWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 17rem;
 `;
 
-export const WeaponsStatsWrapper = styled.div`
+export const WeaponsStatsWrapper = styled.div<WeaponsStatsWrapperType>`
   display: grid;
   grid-template-columns: ${(props) =>
     `repeat(${props.smrepeat} ,${props.smcols}fr)`};
@@ -145,13 +162,13 @@ export const WeaponStatsCard = styled.div`
   text-align: center;
 `;
 
-export const StatsCardSpan = styled.span`
+export const StatsCardSpan = styled.span<StatsCardSpanType>`
   font-size: ${(props) => `${props.spanfs}px`};
   color: #252525;
   font-weight: 600;
 `;
 
-export const StatsCardPara = styled.p`
+export const StatsCardPara = styled.p<StatsCardParaType>`
   font-size: ${(props) => `${props.parafs}px`};
   color: black;
   font-weight: bold;

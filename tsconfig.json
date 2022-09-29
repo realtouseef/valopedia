@@ -5,7 +5,8 @@
       "@pages/*": ["./src/pages/*"],
       "@components/*": ["./src/components/*"],
       "@styles/*": ["./src/styles/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      "@types/*": ["src/utils/types/*"]
     },
     "target": "ES2022",
     "lib": ["dom", "dom.iterable", "esnext"],

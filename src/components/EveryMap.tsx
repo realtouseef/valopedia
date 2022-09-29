@@ -7,8 +7,9 @@ import {
   OuterWrapper,
 } from "@styles/globalStyles";
 import styled from "styled-components";
+import { MapsTypes } from "@utils/types/MapTypes";
 
-const EveryMap = ({ maps }) => {
+const EveryMap: React.FunctionComponent<MapsTypes> = ({ maps }) => {
   return (
     <>
       <SEO
@@ -20,8 +21,8 @@ const EveryMap = ({ maps }) => {
       <Link href="/">
         <LiftedButton fs={16}>Back to Home Page</LiftedButton>
       </Link>
-      <OuterWrapper mdRepeat="2" mdWidth="1fr" lgRepeat="3" lgWidth="1fr">
-        {maps?.map(({ displayName, uuid, splash }) => {
+      <OuterWrapper mdRepeat={2} mdWidth={1} lgRepeat={3} lgWidth={1}>
+        {maps.map(({ displayName, uuid, splash }) => {
           return (
             <Link href={`map/${uuid}`} key={uuid}>
               <InsideWrapper>
