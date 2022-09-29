@@ -40,13 +40,17 @@ const Map = ({ singleMap }) => {
 
         <h1>{singleMap?.displayName}</h1>
         <div>
-          <Image
-            src={singleMap?.displayIcon}
-            alt={singleMap?.displayName}
-            width={300}
-            height={300}
-            objectFit="contain"
-          />
+          {singleMap?.display ? (
+            <Image
+              src={singleMap?.displayIcon}
+              alt={singleMap?.displayName}
+              width={300}
+              height={300}
+              objectFit="contain"
+            />
+          ) : (
+            " "
+          )}
         </div>
         <div>
           {singleMap?.callouts ? (
