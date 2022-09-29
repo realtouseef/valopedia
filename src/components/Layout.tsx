@@ -2,7 +2,9 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import styled from "styled-components";
 
-const Layout = ({ children }) => {
+type ChildrenTypes = { children: React.ReactNode };
+
+const Layout = ({ children }: ChildrenTypes) => {
   return (
     <Container>
       <Navbar />

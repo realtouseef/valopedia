@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-const Navbar = () => {
+const Navbar: React.FunctionComponent = () => {
   return (
     <NavContainer>
       <Link href="/">

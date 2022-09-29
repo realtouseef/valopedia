@@ -1,7 +1,7 @@
 import { siteMetaData } from "@utils/siteMetaData";
 import styled from "styled-components";
 
-const Footer = () => {
+const Footer: React.FunctionComponent = () => {
   const { twitterHandle, twitterLink } = siteMetaData;
   return (
     <FooterContainer>
