@@ -7,8 +7,11 @@ import {
 } from "@styles/globalStyles";
 import styled from "styled-components";
 import SEO from "@utils/SEO";
+import { WeaponsTypes } from "@utils/types/WeaponTypes";
 
-const EveryWeapon = ({ weaponsData }) => {
+const EveryWeapon: React.FunctionComponent<WeaponsTypes> = ({
+  weaponsData,
+}) => {
   return (
     <>
       <SEO
@@ -22,7 +25,7 @@ const EveryWeapon = ({ weaponsData }) => {
         <LiftedButton fs={16}>Back to Home Page</LiftedButton>
       </Link>
 
-      <OuterWrapper mdRepeat="1" mdWidth="1fr" lgRepeat="2" lgWidth="1fr">
+      <OuterWrapper mdRepeat={1} mdWidth={1} lgRepeat={2} lgWidth={1}>
         {weaponsData.map(({ uuid, displayName, displayIcon, shopData }) => {
           return (
             <Link href={`/weapon/${uuid}`} key={uuid}>

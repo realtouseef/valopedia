@@ -4,8 +4,10 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { LiftedButton } from "@styles/globalStyles";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { SingleWeaponType } from "@utils/types/WeaponTypes";
 
-const Weapon = ({ weapon }) => {
+const Weapon: React.FunctionComponent<SingleWeaponType> = ({ weapon }) => {
   const { displayName, displayIcon, weaponStats, shopData } = weapon?.data;
   const { asPath } = useRouter();
   return (
@@ -83,11 +85,13 @@ const Weapon = ({ weapon }) => {
 
 export default Weapon;
 
-export const getStaticPaths = async () => {
-  const res = await fetch(process.env.NEXT_PUBLIC_WEAPONS);
+type PathsData = { uuid: string };
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await fetch(process.env.NEXT_PUBLIC_WEAPONS as string);
   const data = await res.json();
-  const paths = data.data.map((w) => {
-    return { params: { weapon: w.uuid } };
+  const paths = data.data.map(({ uuid }: PathsData) => {
+    return { params: { weapon: uuid } };
   });
 
   return {
@@ -96,8 +100,8 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
-  const id = params.weapon;
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const id = params?.weapon;
   const res = await fetch(`${process.env.NEXT_PUBLIC_WEAPONS}/${id}`);
   const data = await res.json();
 
