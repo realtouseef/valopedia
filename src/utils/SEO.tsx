@@ -1,7 +1,21 @@
 import Head from "next/head";
 import { siteMetaData } from "./siteMetaData";
 
-const SEO = ({ title, description, canonical, OGimageurl, featuredImage }) => {
+interface SEOProps {
+  title: string;
+  description: string;
+  canonical: string;
+  OGimageurl?: string;
+  featuredImage: boolean;
+}
+
+const SEO = ({
+  title,
+  description,
+  canonical,
+  OGimageurl,
+  featuredImage,
+}: SEOProps) => {
   const { siteName, siteUrl, twitterHandle } = siteMetaData;
 
   return (

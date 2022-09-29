@@ -2,14 +2,14 @@ import Link from "next/link";
 import styled from "styled-components";
 import { subCategory } from "./SubCategory";
 
-const Card = () => {
+const Card: React.FunctionComponent = () => {
   return (
     <>
       <CardContainer>
         <CardWrapper>
           {subCategory.map(({ id, link, categoryName, description }) => {
             return (
-              <Link href={link} key={id}>
+              <Link href={link as string} key={id}>
                 <CardLink>
                   <CardName>{categoryName}</CardName>
                   <CardDescription>{description}</CardDescription>

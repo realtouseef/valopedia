@@ -1,4 +1,11 @@
-export const subCategory = [
+interface SubCategoryProps {
+  id: number;
+  link: String;
+  categoryName: String;
+  description: String;
+}
+
+export const subCategory: SubCategoryProps[] = [
   {
     id: 1,
     link: "/agents",
