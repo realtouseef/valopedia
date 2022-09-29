@@ -23,39 +23,38 @@ const EveryAgent = ({ characters }) => {
       </Link>
 
       <OuterWrapper mdRepeat="2" mdWidth="1fr" lgRepeat="3" lgWidth="1fr">
-        {characters.data &&
-          characters.data?.map(
-            ({
-              uuid,
-              displayName,
-              description,
-              displayIcon,
-              role,
-              isPlayableCharacter,
-            }) => {
-              return (
-                <Link href={`agent/${uuid}`} key={uuid}>
-                  <InsideWrapper>
-                    {isPlayableCharacter ? (
-                      <>
-                        <AgentImage
-                          src={displayIcon}
-                          alt={displayName}
-                          width="100"
-                          height="100"
-                        />
-                        <AgentTextWrapper>
-                          <AgentName>{displayName}</AgentName>
-                          <AgentDescription>{description}</AgentDescription>
-                          <AgentRole>{role?.displayName}</AgentRole>
-                        </AgentTextWrapper>
-                      </>
-                    ) : null}
-                  </InsideWrapper>
-                </Link>
-              );
-            }
-          )}
+        {characters.data?.map(
+          ({
+            uuid,
+            displayName,
+            description,
+            displayIcon,
+            role,
+            isPlayableCharacter,
+          }) => {
+            return (
+              <Link href={`agent/${uuid}`} key={uuid}>
+                <InsideWrapper>
+                  {isPlayableCharacter && (
+                    <>
+                      <AgentImage
+                        src={displayIcon}
+                        alt={displayName}
+                        width="100"
+                        height="100"
+                      />
+                      <AgentTextWrapper>
+                        <AgentName>{displayName}</AgentName>
+                        <AgentDescription>{description}</AgentDescription>
+                        <AgentRole>{role?.displayName}</AgentRole>
+                      </AgentTextWrapper>
+                    </>
+                  )}
+                </InsideWrapper>
+              </Link>
+            );
+          }
+        )}
       </OuterWrapper>
     </>
   );
