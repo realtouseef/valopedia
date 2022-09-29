@@ -1,8 +1,8 @@
 interface SubCategoryProps {
   id: number;
-  link: String;
-  categoryName: String;
-  description: String;
+  link: string;
+  categoryName: string;
+  description: string;
 }
 
 export const subCategory: SubCategoryProps[] = [

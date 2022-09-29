@@ -1,7 +1,7 @@
 import EveryAgent from "@components/EveryAgent";
+import { AgentTypes } from "@utils/types";
 
-const Agents: React.FunctionComponent = ({ characters }) => {
-  console.log(characters);
+const Agents = ({ characters }: AgentTypes) => {
   return <EveryAgent characters={characters} />;
 };
 

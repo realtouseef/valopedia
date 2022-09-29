@@ -1,5 +1,14 @@
 import styled, { createGlobalStyle } from "styled-components";
 
+type LiftedButtonType = { fs: number };
+
+type OuterWrapperType = {
+  mdRepeat: number;
+  mdWidth: number;
+  lgRepeat: number;
+  lgWidth: number;
+};
+
 export const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
@@ -27,7 +36,7 @@ export const GlobalStyles = createGlobalStyle`
 
 // card layout w/ slightly raised animation
 
-export const OuterWrapper = styled.div`
+export const OuterWrapper = styled.div<OuterWrapperType>`
   margin: 40px 20px;
   display: grid;
   grid-template-columns: 1fr;
@@ -38,12 +47,12 @@ export const OuterWrapper = styled.div`
   @media (min-width: 768px) {
     margin: 40px auto;
     grid-template-columns: ${(props) =>
-      `repeat(${props.mdRepeat}, ${props.mdWidth}) `};
+      `repeat(${props.mdRepeat}, ${props.mdWidth}fr) `};
   }
 
   @media (min-width: 1048px) {
     grid-template-columns: ${(props) =>
-      `repeat(${props.lgRepeat}, ${props.lgWidth}) `};
+      `repeat(${props.lgRepeat}, ${props.lgWidth}fr) `};
   }
 `;
 
@@ -63,7 +72,7 @@ export const InsideWrapper = styled.a`
   }
 `;
 
-export const LiftedButton = styled.button`
+export const LiftedButton = styled.button<LiftedButtonType>`
   margin: 20px 0;
   padding: 10px 20px;
   font-size: ${(props) => `${props.fs}px`};

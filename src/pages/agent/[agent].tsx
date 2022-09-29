@@ -5,8 +5,10 @@ import { useRouter } from "next/router";
 import styled from "styled-components";
 import { LiftedButton } from "@styles/globalStyles";
 import Link from "next/link";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { SingleAgentType } from "@utils/types";
 
-const Agent = ({ agent }) => {
+const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
   const {
     displayName = " ",
     description,
@@ -70,7 +72,7 @@ const Agent = ({ agent }) => {
                 return (
                   <AbilityWrapper key={slot}>
                     <AbilitySlot>
-                      <AblilitySpan></AblilitySpan>
+                      <AblilitySpan />
                       {slot}
                     </AbilitySlot>
 
@@ -98,11 +100,14 @@ const Agent = ({ agent }) => {
 
 export default Agent;
 
-export const getStaticPaths = async () => {
-  const res = await fetch(process.env.NEXT_PUBLIC_AGENTS);
+type PathProps = { uuid: string };
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await fetch(process.env.NEXT_PUBLIC_AGENTS as string);
   const data = await res.json();
-  const paths = data.data.map((i) => {
-    return { params: { agent: i.uuid } };
+
+  const paths = data.data.map(({ uuid }: PathProps) => {
+    return { params: { agent: uuid } };
   });
 
   return {
@@ -111,8 +116,8 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
-  const id = params.agent;
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const id = params?.agent;
   const res = await fetch(`${process.env.NEXT_PUBLIC_AGENTS}/${id}`);
   const data = await res.json();
 

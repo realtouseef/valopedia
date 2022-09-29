@@ -7,8 +7,9 @@ import {
   LiftedButton,
 } from "@styles/globalStyles";
 import SEO from "@utils/SEO";
+import { AgentsTypes } from "@utils/types";
 
-const EveryAgent = ({ characters }) => {
+const EveryAgent: React.FunctionComponent<AgentsTypes> = ({ characters }) => {
   return (
     <>
       <SEO
@@ -22,8 +23,8 @@ const EveryAgent = ({ characters }) => {
         <LiftedButton fs={16}>Back to Home Page</LiftedButton>
       </Link>
 
-      <OuterWrapper mdRepeat="2" mdWidth="1fr" lgRepeat="3" lgWidth="1fr">
-        {characters.data?.map(
+      <OuterWrapper mdRepeat={2} mdWidth={1} lgRepeat={3} lgWidth={1}>
+        {characters.data.map(
           ({
             uuid,
             displayName,
