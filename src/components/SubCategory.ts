@@ -24,18 +24,18 @@ export const subCategory: SubCategoryProps[] = [
     categoryName: "maps",
     description: "Every map that is available on Valorant alongside skins",
   },
-  // {
-  //   id: 4,
-  //   link: "/weapon-buddies",
-  //   categoryName: "weapon buddies",
-  //   description: "Every weapon buddy that is available on Valorant",
-  // },
-  // {
-  //   id: 5,
-  //   link: "/competitive-tiers",
-  //   categoryName: "competitive tiers",
-  //   description: "Every competitive tier that is available on Valorant",
-  // },
+  {
+    id: 4,
+    link: "/weapon-buddies",
+    categoryName: "weapon buddies",
+    description: "Every weapon buddy that is available on Valorant",
+  },
+  {
+    id: 5,
+    link: "/competitive-tiers",
+    categoryName: "competitive tiers",
+    description: "Every competitive tier that is available on Valorant",
+  },
   // {
   //   id: 6,
   //   link: "/player-cards",

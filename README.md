@@ -34,14 +34,14 @@ yarn dev
 
 ## Priority TODOs
 
+- [ ] Adding more content -- basically (almost) everything that is given by the API
+
 ## Working on TODOs
 
-- [ ] Adding more content -- basically (almost) everything that is given by the API
-- [ ] Add Weapon buddies (https://valorant-api.com/v1/buddies) by uuid (https://valorant-api.com/v1/buddies/{buddyUuid})
+- [ ] Add competitive tiers (https://valorant-api.com/v1/competitivetiers) by uuid (https://valorant-api.com/v1/competitivetiers/{competitivetierUuid})
 
 ## TODOs
 
-- [ ] Add competitive tiers (https://valorant-api.com/v1/competitivetiers) by uuid (https://valorant-api.com/v1/competitivetiers/{competitivetierUuid})
 - [ ] Add Player Cards (https://valorant-api.com/v1/playercards) by uuid (https://valorant-api.com/v1/playercards/{playercardUuid})
 - [ ] Add Gears (https://valorant-api.com/v1/gear) and Gear by Uuid (https://valorant-api.com/v1/gear/{gearUuid})
 - [ ] Add Bundles (https://valorant-api.com/v1/bundles) and Bundle by Uuid (https://valorant-api.com/v1/bundles/{bundleUuid})
@@ -67,4 +67,5 @@ yarn dev
 - [x] `maps/ee613ee9-28b7-4beb-9666-08db13bb2244` error is `The Range` and doesn't have a `displayIcon` — possible fix is to use ternary operator
 - [x] **FIX THE DEPLOYMENT ERROR BEFORE ANYTHING ELSE.**
 
+- [x] Add Weapon buddies (https://valorant-api.com/v1/buddies) -- not adding buddies by uuid because same content.
 - [x] `TypeError: Cannot read properties of null (reading 'default')` is the `Sova` with `isPlayableCharacter = false` id: `/agent/ded3520f-4264-bfed-162d-b080e2abccf9` — possible fix is to use ternary operator
