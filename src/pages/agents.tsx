@@ -9,7 +9,7 @@ const Agents = ({ characters }: AgentsTypes) => {
 export default Agents;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch(process.env.NEXT_PUBLIC_AGENTS as string);
+  const res = await fetch(process.env.NEXT_PUBLIC_AGENTS_PLAYABLE as string);
   const data = await res.json();
 
   return {

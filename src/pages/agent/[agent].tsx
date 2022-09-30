@@ -8,24 +8,15 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { SingleAgentType } from "@utils/types/AgentTypes";
 
 const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
-  const {
-    displayName,
-    description,
-    fullPortrait,
-    killfeedPortrait,
-    abilities,
-    role,
-  } = agent?.data || {};
-
   const { asPath } = useRouter();
 
   return (
     <>
       <SEO
-        title={displayName}
-        description={description}
+        title={agent.data?.displayName}
+        description={agent.data?.description}
         canonical={asPath}
-        OGimageurl={killfeedPortrait}
+        OGimageurl={agent.data?.killfeedPortrait}
         featuredImage={true}
       />
 
@@ -33,69 +24,67 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
         <LiftedButton fs={16}>Back to Agents Page</LiftedButton>
       </Link>
 
-      {agent?.data ? (
-        <AgentProfile>
-          <AgentPortrait>
+      <AgentProfile>
+        <AgentPortrait>
+          <Image
+            src={agent.data?.fullPortrait}
+            alt={agent.data?.displayName}
+            placeholder="blur"
+            blurDataURL={agent.data?.fullPortrait}
+            objectFit="cover"
+            layout="fill"
+            quality={100}
+          />
+        </AgentPortrait>
+        <AgentTextWrapper>
+          <AgentDisplayName>{agent.data?.displayName}</AgentDisplayName>
+          <AgentDescription>{agent.data?.description}</AgentDescription>
+
+          <AgentProfileRoles>
+            <AgentRoleText>Role</AgentRoleText>
             <Image
-              src={fullPortrait}
-              alt={displayName}
-              placeholder="blur"
-              blurDataURL={fullPortrait}
-              objectFit="cover"
-              layout="fill"
-              quality={100}
+              src={agent.data?.role?.displayIcon}
+              alt={agent.data?.role?.displayName}
+              width="30"
+              height="30"
+              className="agent_roles_icons"
             />
-          </AgentPortrait>
-          <AgentTextWrapper>
-            <AgentDisplayName>{displayName}</AgentDisplayName>
-            <AgentDescription>{description}</AgentDescription>
 
-            <AgentProfileRoles>
-              <AgentRoleText>Role</AgentRoleText>
-              <Image
-                src={role?.displayIcon}
-                alt={role?.displayName}
-                width="30"
-                height="30"
-                className="agent_roles_icons"
-              />
+            <AgentRolesName>{agent.data?.role?.displayName}</AgentRolesName>
 
-              <AgentRolesName>{role?.displayName}</AgentRolesName>
+            <AgentRolesDescription>
+              {agent.data?.role?.description}
+            </AgentRolesDescription>
+          </AgentProfileRoles>
 
-              <AgentRolesDescription>{role?.description}</AgentRolesDescription>
-            </AgentProfileRoles>
+          <ProfileAbility>
+            {agent.data?.abilities?.map(
+              ({ slot, displayIcon, displayName, description }) => {
+                return (
+                  <AbilityWrapper key={slot}>
+                    <AbilitySlot>
+                      <AblilitySpan />
+                      {slot}
+                    </AbilitySlot>
 
-            <ProfileAbility>
-              {abilities?.map(
-                ({ slot, displayIcon, displayName, description }) => {
-                  return (
-                    <AbilityWrapper key={slot}>
-                      <AbilitySlot>
-                        <AblilitySpan />
-                        {slot}
-                      </AbilitySlot>
+                    <Image
+                      src={displayIcon}
+                      alt={displayName}
+                      width={50}
+                      height={50}
+                      className="agent_abililty_icons"
+                    />
 
-                      <Image
-                        src={displayIcon}
-                        alt={displayName}
-                        width={50}
-                        height={50}
-                        className="agent_abililty_icons"
-                      />
+                    <AbilityName>{displayName}</AbilityName>
 
-                      <AbilityName>{displayName}</AbilityName>
-
-                      <AbilityDescription>{description}</AbilityDescription>
-                    </AbilityWrapper>
-                  );
-                }
-              )}
-            </ProfileAbility>
-          </AgentTextWrapper>
-        </AgentProfile>
-      ) : (
-        <p>Nothing found for this Agent</p>
-      )}
+                    <AbilityDescription>{description}</AbilityDescription>
+                  </AbilityWrapper>
+                );
+              }
+            )}
+          </ProfileAbility>
+        </AgentTextWrapper>
+      </AgentProfile>
     </>
   );
 };
