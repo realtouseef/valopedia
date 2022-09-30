@@ -1,6 +1,5 @@
 import Image from "next/image";
 import SEO from "@utils/SEO";
-import { siteMetaData } from "@utils/siteMetaData";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { LiftedButton } from "@styles/globalStyles";
@@ -18,7 +17,6 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
     role,
   } = agent?.data || {};
 
-  const { siteUrl } = siteMetaData;
   const { asPath } = useRouter();
 
   return (

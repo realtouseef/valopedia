@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
-const gear: React.FunctionComponent<IGear> = ({ gear }) => {
+const Gear: React.FunctionComponent<IGear> = ({ gear }) => {
   const { asPath } = useRouter();
 
   return (
@@ -40,7 +40,7 @@ const gear: React.FunctionComponent<IGear> = ({ gear }) => {
   );
 };
 
-export default gear;
+export default Gear;
 
 type IPaths = { uuid: string };
 
