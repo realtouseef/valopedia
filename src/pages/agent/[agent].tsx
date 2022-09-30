@@ -10,14 +10,14 @@ import { SingleAgentType } from "@utils/types/AgentTypes";
 const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
   const { asPath } = useRouter();
   const {
-    displayName = " ",
+    displayName,
     description,
     killfeedPortrait,
     fullPortrait,
     role,
     abilities,
     isPlayableCharacter,
-  } = agent?.data || [];
+  } = agent?.data;
 
   return (
     <>
@@ -33,7 +33,7 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
         <LiftedButton fs={16}>Back to Agents Page</LiftedButton>
       </Link>
 
-      {isPlayableCharacter ? (
+      {isPlayableCharacter && (
         <AgentProfile>
           <AgentPortrait>
             <Image
@@ -93,8 +93,6 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
             </ProfileAbility>
           </AgentTextWrapper>
         </AgentProfile>
-      ) : (
-        <p>Nothing found for this agent</p>
       )}
     </>
   );
@@ -114,7 +112,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
