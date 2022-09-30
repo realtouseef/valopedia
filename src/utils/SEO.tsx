@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title,
+  title = "Ops, Nothing here",
   description,
   canonical,
   OGimageurl,
