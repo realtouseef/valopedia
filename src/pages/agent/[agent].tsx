@@ -10,8 +10,6 @@ import { SingleAgentType } from "@utils/types/AgentTypes";
 const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
   const { asPath } = useRouter();
   const {
-    displayName = " ",
-    description = " ",
     killfeedPortrait,
     fullPortrait,
     role,
@@ -22,8 +20,8 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
   return (
     <>
       <SEO
-        title={displayName}
-        description={description}
+        title={agent.data?.displayName}
+        description={agent.data?.description}
         canonical={asPath}
         OGimageurl={killfeedPortrait}
         featuredImage={true}
@@ -38,7 +36,7 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
           <AgentPortrait>
             <Image
               src={fullPortrait}
-              alt={displayName}
+              alt={agent.data?.displayName}
               placeholder="blur"
               blurDataURL={fullPortrait}
               objectFit="cover"
@@ -47,8 +45,8 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
             />
           </AgentPortrait>
           <AgentTextWrapper>
-            <AgentDisplayName>{displayName}</AgentDisplayName>
-            <AgentDescription>{description}</AgentDescription>
+            <AgentDisplayName>{agent.data?.displayName}</AgentDisplayName>
+            <AgentDescription>{agent.data?.description}</AgentDescription>
 
             <AgentProfileRoles>
               <AgentRoleText>Role</AgentRoleText>
