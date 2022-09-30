@@ -8,14 +8,16 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { SingleAgentType } from "@utils/types/AgentTypes";
 
 const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
-  const { asPath } = useRouter();
-
+  const router = useRouter();
+  if (!router.isFallback && !agent.data) {
+    return <p>No data found for this Agent</p>;
+  }
   return (
     <>
       <SEO
         title={agent?.data?.displayName}
         description={agent?.data?.description}
-        canonical={asPath}
+        canonical={router.asPath}
         OGimageurl={agent?.data?.killfeedPortrait}
         featuredImage={true}
       />
