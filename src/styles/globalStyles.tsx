@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 type LiftedButtonType = { fs: number };
 
 type OuterWrapperType = {
+  smRepeat: number;
   mdRepeat: number;
   mdWidth: number;
   lgRepeat: number;
@@ -39,7 +40,7 @@ export const GlobalStyles = createGlobalStyle`
 export const OuterWrapper = styled.div<OuterWrapperType>`
   margin: 40px 20px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: ${(props) => `repeat(${props.smRepeat}, 1fr)`};
   place-items: center;
   place-content: center;
   gap: 1.25rem;

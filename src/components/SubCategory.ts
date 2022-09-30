@@ -36,12 +36,12 @@ export const subCategory: SubCategoryProps[] = [
     categoryName: "competitive tiers",
     description: "Every competitive tier that is available on Valorant",
   },
-  // {
-  //   id: 6,
-  //   link: "/player-cards",
-  //   categoryName: "player cards",
-  //   description: "Every Player Card that is available on Valorant",
-  // },
+  {
+    id: 6,
+    link: "/player-cards",
+    categoryName: "player cards",
+    description: "Every Player Card that is available on Valorant",
+  },
   // {
   //   id: 7,
   //   link: "/gears",

@@ -21,7 +21,13 @@ const EveryMap: React.FunctionComponent<MapsTypes> = ({ maps }) => {
       <Link href="/">
         <LiftedButton fs={16}>Back to Home Page</LiftedButton>
       </Link>
-      <OuterWrapper mdRepeat={2} mdWidth={1} lgRepeat={3} lgWidth={1}>
+      <OuterWrapper
+        smRepeat={1}
+        mdRepeat={2}
+        mdWidth={1}
+        lgRepeat={3}
+        lgWidth={1}
+      >
         {maps.map(({ displayName, uuid, splash }) => {
           return (
             <Link href={`map/${uuid}`} key={uuid}>

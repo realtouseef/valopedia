@@ -1,4 +1,5 @@
 import { LiftedButton } from "@styles/globalStyles";
+import SEO from "@utils/SEO";
 import { CompetitiveTiersTypes } from "@utils/types/CompetitiveTierTypes";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +10,12 @@ const EveryCompetitiveTier: React.FunctionComponent<CompetitiveTiersTypes> = ({
 }) => {
   return (
     <>
+      <SEO
+        title="Competitive Tiers"
+        description="Every Competitive Tier that is avaialbe on Valorant"
+        featuredImage={false}
+        canonical="/competitive-tiers"
+      />
       <Link href="/">
         <LiftedButton fs={16}>Back to Home Page</LiftedButton>
       </Link>

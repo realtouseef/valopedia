@@ -25,7 +25,13 @@ const EveryWeaponBuddy: React.FunctionComponent<WeaponBuddiesType> = ({
         <LiftedButton fs={16}>Back to Home Page</LiftedButton>
       </Link>
       <h2>{buddies.length} Available Weapon Buddies</h2>
-      <OuterWrapper mdRepeat={2} mdWidth={1} lgRepeat={4} lgWidth={1}>
+      <OuterWrapper
+        smRepeat={2}
+        mdRepeat={2}
+        mdWidth={1}
+        lgRepeat={4}
+        lgWidth={1}
+      >
         {buddies.map(({ uuid, displayName, displayIcon }) => {
           return (
             <BuddyWrapper key={uuid}>

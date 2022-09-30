@@ -17,7 +17,7 @@ const EveryWeapon: React.FunctionComponent<WeaponsTypes> = ({
       <SEO
         title="Every Weapon"
         description="Every Weapon that is available on Valorant alongside skins"
-        canonical={`weapons`}
+        canonical={`/weapons`}
         featuredImage={false}
       />
 
@@ -25,7 +25,13 @@ const EveryWeapon: React.FunctionComponent<WeaponsTypes> = ({
         <LiftedButton fs={16}>Back to Home Page</LiftedButton>
       </Link>
 
-      <OuterWrapper mdRepeat={1} mdWidth={1} lgRepeat={2} lgWidth={1}>
+      <OuterWrapper
+        smRepeat={1}
+        mdRepeat={1}
+        mdWidth={1}
+        lgRepeat={2}
+        lgWidth={1}
+      >
         {weaponsData.map(({ uuid, displayName, displayIcon, shopData }) => {
           return (
             <Link href={`/weapon/${uuid}`} key={uuid}>

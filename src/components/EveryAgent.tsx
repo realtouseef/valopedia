@@ -23,7 +23,13 @@ const EveryAgent: React.FunctionComponent<AgentsTypes> = ({ characters }) => {
         <LiftedButton fs={16}>Back to Home Page</LiftedButton>
       </Link>
 
-      <OuterWrapper mdRepeat={2} mdWidth={1} lgRepeat={3} lgWidth={1}>
+      <OuterWrapper
+        smRepeat={1}
+        mdRepeat={2}
+        mdWidth={1}
+        lgRepeat={3}
+        lgWidth={1}
+      >
         {characters.data.map(
           ({ uuid, displayName, description, displayIcon, role }) => {
             return (
