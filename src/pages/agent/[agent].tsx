@@ -24,7 +24,7 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
         <LiftedButton fs={16}>Back to Agents Page</LiftedButton>
       </Link>
 
-      {agent.data.isPlayableCharacter && (
+      {agent.data?.isPlayableCharacter && (
         <AgentProfile>
           <AgentPortrait>
             <Image
