@@ -31,23 +31,32 @@ const EveryAgent: React.FunctionComponent<AgentsTypes> = ({ characters }) => {
         lgWidth={1}
       >
         {characters.data.map(
-          ({ uuid, displayName, description, displayIcon, role }) => {
+          ({
+            uuid,
+            displayName,
+            description,
+            displayIcon,
+            role,
+            isPlayableCharater,
+          }) => {
             return (
               <Link href={`agent/${uuid}`} key={uuid}>
                 <InsideWrapper>
-                  <>
-                    <AgentImage
-                      src={displayIcon}
-                      alt={displayName}
-                      width="100"
-                      height="100"
-                    />
-                    <AgentTextWrapper>
-                      <AgentName>{displayName}</AgentName>
-                      <AgentDescription>{description}</AgentDescription>
-                      <AgentRole>{role?.displayName}</AgentRole>
-                    </AgentTextWrapper>
-                  </>
+                  {isPlayableCharater && (
+                    <>
+                      <AgentImage
+                        src={displayIcon}
+                        alt={displayName}
+                        width="100"
+                        height="100"
+                      />
+                      <AgentTextWrapper>
+                        <AgentName>{displayName}</AgentName>
+                        <AgentDescription>{description}</AgentDescription>
+                        <AgentRole>{role?.displayName}</AgentRole>
+                      </AgentTextWrapper>
+                    </>
+                  )}
                 </InsideWrapper>
               </Link>
             );

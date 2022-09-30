@@ -5,6 +5,7 @@ export interface AgentsTypes {
       displayName: string;
       description: string;
       displayIcon: string;
+      isPlayableCharater: boolean;
       role: {
         displayName: string;
       };
