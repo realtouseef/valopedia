@@ -10,8 +10,8 @@ import { SingleAgentType } from "@utils/types/AgentTypes";
 const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
   const { asPath } = useRouter();
   const {
-    displayName,
-    description,
+    displayName = " ",
+    description = " ",
     killfeedPortrait,
     fullPortrait,
     role,
