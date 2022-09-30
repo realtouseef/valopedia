@@ -10,7 +10,7 @@ import { SingleAgentType } from "@utils/types/AgentTypes";
 
 const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
   const {
-    displayName = " ",
+    displayName,
     description,
     fullPortrait,
     killfeedPortrait,
