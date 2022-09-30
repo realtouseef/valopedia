@@ -1,4 +1,4 @@
-export interface MapsTypes {
+export interface IMapsTypes {
   maps: {
     uuid: string;
     displayName: string;

@@ -1,6 +1,7 @@
 import EveryMap from "@components/EveryMap";
+import { IMapsTypes } from "@utils/types/MapTypes";
 
-const Maps = ({ maps }) => {
+const Maps: React.FunctionComponent<IMapsTypes> = ({ maps }) => {
   return (
     <>
       <EveryMap maps={maps} />
@@ -11,7 +12,7 @@ const Maps = ({ maps }) => {
 export default Maps;
 
 export const getStaticProps = async () => {
-  const res = await fetch(process.env.NEXT_PUBLIC_MAPS);
+  const res = await fetch(process.env.NEXT_PUBLIC_MAPS as string);
   const data = await res.json();
 
   return {

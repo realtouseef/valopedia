@@ -15,7 +15,7 @@ import { SingleMapTypes } from "@utils/types/MapTypes";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 const Map: React.FunctionComponent<SingleMapTypes> = ({ singleMap }) => {
-  const { siteDescription, siteUrl } = siteMetaData;
+  const { siteDescription } = siteMetaData;
   const { asPath } = useRouter();
 
   return (
@@ -23,7 +23,7 @@ const Map: React.FunctionComponent<SingleMapTypes> = ({ singleMap }) => {
       <SEO
         title={`${singleMap?.displayName} Map`}
         description={siteDescription}
-        canonical={`${siteUrl}${asPath}`}
+        canonical={asPath}
         OGimageurl={singleMap?.listViewIcon}
         featuredImage={true}
       />

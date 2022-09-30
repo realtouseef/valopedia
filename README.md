@@ -40,7 +40,6 @@ yarn dev
 
 ## TODOs
 
-- [ ] Add Gears (https://valorant-api.com/v1/gear) and Gear by Uuid (https://valorant-api.com/v1/gear/{gearUuid})
 - [ ] Add Bundles (https://valorant-api.com/v1/bundles) and Bundle by Uuid (https://valorant-api.com/v1/bundles/{bundleUuid})
 - [ ] Add Contracts (https://valorant-api.com/v1/contracts) by uuid (https://valorant-api.com/v1/contracts/{contractUuid})
 - [ ] Add Sprays (https://valorant-api.com/v1/sprays) by uuid (https://valorant-api.com/v1/sprays/{sprayUuid})
@@ -55,6 +54,7 @@ yarn dev
 
 ## Completed TODOs
 
+- [x] Add Gears (https://valorant-api.com/v1/gear) and Gear by Uuid (https://valorant-api.com/v1/gear/{gearUuid})
 - [x] SEO
 - [x] Move to TypeScript
 - [x] Fix the `TypeError: Cannot read properties of null (reading 'displayIcon')` in production in `agent/[agent].jsx`

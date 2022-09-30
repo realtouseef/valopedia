@@ -7,9 +7,9 @@ import {
   OuterWrapper,
 } from "@styles/globalStyles";
 import styled from "styled-components";
-import { MapsTypes } from "@utils/types/MapTypes";
+import { IMapsTypes } from "@utils/types/MapTypes";
 
-const EveryMap: React.FunctionComponent<MapsTypes> = ({ maps }) => {
+const EveryMap: React.FunctionComponent<IMapsTypes> = ({ maps }) => {
   return (
     <>
       <SEO

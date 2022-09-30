@@ -2,7 +2,7 @@ import Head from "next/head";
 import { siteMetaData } from "@utils/siteMetaData";
 import Card from "@components/Card";
 
-const Home = () => {
+const Home: React.FunctionComponent = () => {
   const { siteName, siteDescription, siteKeywords, siteAuthor, siteUrl } =
     siteMetaData;
   return (

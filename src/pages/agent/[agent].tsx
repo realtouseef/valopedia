@@ -26,7 +26,7 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
       <SEO
         title={displayName}
         description={description}
-        canonical={`${siteUrl}${asPath}`}
+        canonical={asPath}
         OGimageurl={killfeedPortrait}
         featuredImage={true}
       />
