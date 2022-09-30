@@ -10,6 +10,8 @@ import { SingleAgentType } from "@utils/types/AgentTypes";
 const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
   const { asPath } = useRouter();
 
+  if (!agent) return null;
+
   return (
     <>
       <SEO
@@ -43,7 +45,7 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
 
             <AgentProfileRoles>
               <AgentRoleText>Role</AgentRoleText>
-              <Image
+              <RoleIcon
                 src={agent.data?.role?.displayIcon}
                 alt={agent.data?.role?.displayName}
                 width="30"
@@ -68,7 +70,7 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
                         {slot}
                       </AbilitySlot>
 
-                      <Image
+                      <AbilityIcons
                         src={displayIcon}
                         alt={displayName}
                         width={50}
@@ -195,6 +197,11 @@ const AgentRolesDescription = styled.p`
   color: rgb(75 85 99);
 `;
 
+const RoleIcon = styled(Image)`
+  background-color: #292929;
+  border-radius: 100%;
+`;
+
 const ProfileAbility = styled.div`
   display: grid;
   grid-template-columns: 1fr;
@@ -239,4 +246,9 @@ const AbilityDescription = styled.p`
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: rgb(75 85 99);
+`;
+
+const AbilityIcons = styled(Image)`
+  background-color: #292929;
+  border-radius: 100%;
 `;
