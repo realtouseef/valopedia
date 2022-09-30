@@ -19,6 +19,7 @@ export interface SingleAgentType {
       description: string;
       fullPortrait: string;
       killfeedPortrait: string;
+      isPlayableCharacter: boolean;
       role: {
         displayName: string;
         displayIcon: string;

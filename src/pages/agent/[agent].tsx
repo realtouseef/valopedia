@@ -24,67 +24,69 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
         <LiftedButton fs={16}>Back to Agents Page</LiftedButton>
       </Link>
 
-      <AgentProfile>
-        <AgentPortrait>
-          <Image
-            src={agent.data?.fullPortrait}
-            alt={agent.data?.displayName}
-            placeholder="blur"
-            blurDataURL={agent.data?.fullPortrait}
-            objectFit="cover"
-            layout="fill"
-            quality={100}
-          />
-        </AgentPortrait>
-        <AgentTextWrapper>
-          <AgentDisplayName>{agent.data?.displayName}</AgentDisplayName>
-          <AgentDescription>{agent.data?.description}</AgentDescription>
-
-          <AgentProfileRoles>
-            <AgentRoleText>Role</AgentRoleText>
+      {agent.data.isPlayableCharacter && (
+        <AgentProfile>
+          <AgentPortrait>
             <Image
-              src={agent.data?.role?.displayIcon}
-              alt={agent.data?.role?.displayName}
-              width="30"
-              height="30"
-              className="agent_roles_icons"
+              src={agent.data?.fullPortrait}
+              alt={agent.data?.displayName}
+              placeholder="blur"
+              blurDataURL={agent.data?.fullPortrait}
+              objectFit="cover"
+              layout="fill"
+              quality={100}
             />
+          </AgentPortrait>
+          <AgentTextWrapper>
+            <AgentDisplayName>{agent.data?.displayName}</AgentDisplayName>
+            <AgentDescription>{agent.data?.description}</AgentDescription>
 
-            <AgentRolesName>{agent.data?.role?.displayName}</AgentRolesName>
+            <AgentProfileRoles>
+              <AgentRoleText>Role</AgentRoleText>
+              <Image
+                src={agent.data?.role?.displayIcon}
+                alt={agent.data?.role?.displayName}
+                width="30"
+                height="30"
+                className="agent_roles_icons"
+              />
 
-            <AgentRolesDescription>
-              {agent.data?.role?.description}
-            </AgentRolesDescription>
-          </AgentProfileRoles>
+              <AgentRolesName>{agent.data?.role?.displayName}</AgentRolesName>
 
-          <ProfileAbility>
-            {agent.data?.abilities?.map(
-              ({ slot, displayIcon, displayName, description }) => {
-                return (
-                  <AbilityWrapper key={slot}>
-                    <AbilitySlot>
-                      <AblilitySpan />
-                      {slot}
-                    </AbilitySlot>
+              <AgentRolesDescription>
+                {agent.data?.role?.description}
+              </AgentRolesDescription>
+            </AgentProfileRoles>
 
-                    <Image
-                      src={displayIcon}
-                      alt={displayName}
-                      width={50}
-                      height={50}
-                      className="agent_abililty_icons"
-                    />
+            <ProfileAbility>
+              {agent.data?.abilities?.map(
+                ({ slot, displayIcon, displayName, description }) => {
+                  return (
+                    <AbilityWrapper key={slot}>
+                      <AbilitySlot>
+                        <AblilitySpan />
+                        {slot}
+                      </AbilitySlot>
 
-                    <AbilityName>{displayName}</AbilityName>
+                      <Image
+                        src={displayIcon}
+                        alt={displayName}
+                        width={50}
+                        height={50}
+                        className="agent_abililty_icons"
+                      />
 
-                    <AbilityDescription>{description}</AbilityDescription>
-                  </AbilityWrapper>
-                );
-              }
-            )}
-          </ProfileAbility>
-        </AgentTextWrapper>
-      </AgentProfile>
+                      <AbilityName>{displayName}</AbilityName>
+
+                      <AbilityDescription>{description}</AbilityDescription>
+                    </AbilityWrapper>
+                  );
+                }
+              )}
+            </ProfileAbility>
+          </AgentTextWrapper>
+        </AgentProfile>
+      )}
     </>
   );
 };
