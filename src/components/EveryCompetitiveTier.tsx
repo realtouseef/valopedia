@@ -15,8 +15,8 @@ const EveryCompetitiveTier: React.FunctionComponent<CompetitiveTiersTypes> = ({
       <h3>{competitiveTier.length} Competitive Tiers shown</h3>
       <p>
         And each tier has{" "}
-        {competitiveTier.map(({ tiers }) => {
-          return <span>{tiers.length}, </span>;
+        {competitiveTier.map(({ tiers, uuid }) => {
+          return <span key={uuid}>{tiers.length}, </span>;
         })}{" "}
         tiers/levels respectively
       </p>
