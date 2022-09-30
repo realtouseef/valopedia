@@ -17,7 +17,7 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
     role,
     abilities,
     isPlayableCharacter,
-  } = agent.data || {};
+  } = agent?.data || {};
 
   return (
     <>
