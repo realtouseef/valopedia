@@ -9,13 +9,6 @@ import { SingleAgentType } from "@utils/types/AgentTypes";
 
 const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
   const { asPath } = useRouter();
-  const {
-    killfeedPortrait,
-    fullPortrait,
-    role,
-    abilities,
-    isPlayableCharacter,
-  } = agent?.data;
 
   return (
     <>
@@ -23,7 +16,7 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
         title={agent.data?.displayName}
         description={agent.data?.description}
         canonical={asPath}
-        OGimageurl={killfeedPortrait}
+        OGimageurl={agent.data?.killfeedPortrait}
         featuredImage={true}
       />
 
@@ -31,14 +24,14 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
         <LiftedButton fs={16}>Back to Agents Page</LiftedButton>
       </Link>
 
-      {isPlayableCharacter && (
+      {agent.data?.isPlayableCharacter && (
         <AgentProfile>
           <AgentPortrait>
             <Image
-              src={fullPortrait}
+              src={agent.data?.fullPortrait}
               alt={agent.data?.displayName}
               placeholder="blur"
-              blurDataURL={fullPortrait}
+              blurDataURL={agent.data?.fullPortrait}
               objectFit="cover"
               layout="fill"
               quality={100}
@@ -51,20 +44,22 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
             <AgentProfileRoles>
               <AgentRoleText>Role</AgentRoleText>
               <RoleIcon
-                src={role?.displayIcon}
-                alt={role?.displayName}
+                src={agent.data?.role?.displayIcon}
+                alt={agent.data?.role?.displayName}
                 width="30"
                 height="30"
                 className="agent_roles_icons"
               />
 
-              <AgentRolesName>{role?.displayName}</AgentRolesName>
+              <AgentRolesName>{agent.data?.role?.displayName}</AgentRolesName>
 
-              <AgentRolesDescription>{role?.description}</AgentRolesDescription>
+              <AgentRolesDescription>
+                {agent.data?.role?.description}
+              </AgentRolesDescription>
             </AgentProfileRoles>
 
             <ProfileAbility>
-              {abilities?.map(
+              {agent.data?.abilities?.map(
                 ({ slot, displayIcon, displayName, description }) => {
                   return (
                     <AbilityWrapper key={slot}>
