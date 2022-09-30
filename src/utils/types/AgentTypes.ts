@@ -8,7 +8,6 @@ export interface AgentsTypes {
       role: {
         displayName: string;
       };
-      isPlayableCharacter: boolean;
     }[];
   };
 }

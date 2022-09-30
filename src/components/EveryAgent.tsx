@@ -25,32 +25,23 @@ const EveryAgent: React.FunctionComponent<AgentsTypes> = ({ characters }) => {
 
       <OuterWrapper mdRepeat={2} mdWidth={1} lgRepeat={3} lgWidth={1}>
         {characters.data.map(
-          ({
-            uuid,
-            displayName,
-            description,
-            displayIcon,
-            role,
-            isPlayableCharacter,
-          }) => {
+          ({ uuid, displayName, description, displayIcon, role }) => {
             return (
               <Link href={`agent/${uuid}`} key={uuid}>
                 <InsideWrapper>
-                  {isPlayableCharacter && (
-                    <>
-                      <AgentImage
-                        src={displayIcon}
-                        alt={displayName}
-                        width="100"
-                        height="100"
-                      />
-                      <AgentTextWrapper>
-                        <AgentName>{displayName}</AgentName>
-                        <AgentDescription>{description}</AgentDescription>
-                        <AgentRole>{role?.displayName}</AgentRole>
-                      </AgentTextWrapper>
-                    </>
-                  )}
+                  <>
+                    <AgentImage
+                      src={displayIcon}
+                      alt={displayName}
+                      width="100"
+                      height="100"
+                    />
+                    <AgentTextWrapper>
+                      <AgentName>{displayName}</AgentName>
+                      <AgentDescription>{description}</AgentDescription>
+                      <AgentRole>{role?.displayName}</AgentRole>
+                    </AgentTextWrapper>
+                  </>
                 </InsideWrapper>
               </Link>
             );
