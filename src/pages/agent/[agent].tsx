@@ -120,7 +120,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.agent;
-  const res = await fetch(`${process.env.NEXT_PUBLIC_AGENTS}/${id}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_AGENTS}/${id}?isPlayableCharacter=true`
+  );
   const data = await res.json();
 
   return {
