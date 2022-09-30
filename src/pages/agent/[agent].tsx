@@ -10,8 +10,7 @@ import { SingleAgentType } from "@utils/types/AgentTypes";
 const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
   const { asPath } = useRouter();
 
-  if (!agent) return null;
-
+  const availableData = agent.data ? agent.data : {};
   return (
     <>
       <SEO
@@ -26,7 +25,7 @@ const Agent: React.FunctionComponent<SingleAgentType> = ({ agent }) => {
         <LiftedButton fs={16}>Back to Agents Page</LiftedButton>
       </Link>
 
-      {agent.data?.isPlayableCharacter && agent.data ? (
+      {agent.data?.isPlayableCharacter && availableData ? (
         <AgentProfile>
           <AgentPortrait>
             <Image
