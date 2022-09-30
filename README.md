@@ -4,9 +4,7 @@ Valorant Encyclopedia — where you will find everything about Valorant; from we
 
 ## Live Preview
 
-Not yet deployed — error is occuring
-
-![Error is occuring while deploying to vercel](/public/md-images/error.jpeg)
+https://valopedia.vercel.app
 
 ## API
 
@@ -36,15 +34,13 @@ yarn dev
 
 ## Priority TODOs
 
-- [ ] `maps/ee613ee9-28b7-4beb-9666-08db13bb2244` error is `The Range` and doesn't have a `displayIcon` — possible fix is to use ternary operator
+## Working on TODOs
 
-- [ ] `TypeError: Cannot read properties of null (reading 'default')` is the `Sova` with `isPlayableCharacter = false` id: `/agent/ded3520f-4264-bfed-162d-b080e2abccf9` — possible fix is to use ternary operator
+- [ ] Adding more content -- basically (almost) everything that is given by the API
+- [ ] Add Weapon buddies (https://valorant-api.com/v1/buddies) by uuid (https://valorant-api.com/v1/buddies/{buddyUuid})
 
 ## TODOs
 
-- [ ] **FIX THE DEPLOYMENT ERROR BEFORE ANYTHING ELSE.**
-
-- [ ] Add Weapon buddies (https://valorant-api.com/v1/buddies) by uuid (https://valorant-api.com/v1/buddies/{buddyUuid})
 - [ ] Add competitive tiers (https://valorant-api.com/v1/competitivetiers) by uuid (https://valorant-api.com/v1/competitivetiers/{competitivetierUuid})
 - [ ] Add Player Cards (https://valorant-api.com/v1/playercards) by uuid (https://valorant-api.com/v1/playercards/{playercardUuid})
 - [ ] Add Gears (https://valorant-api.com/v1/gear) and Gear by Uuid (https://valorant-api.com/v1/gear/{gearUuid})
@@ -54,19 +50,21 @@ yarn dev
 - [ ] Add Game Modes (https://valorant-api.com/v1/gamemodes) by uuid (https://valorant-api.com/v1/gamemodes/{gamemodeUuid})
 
 - [ ] Fix the Weapon page images (basically, make it more responsive)
-- [ ] Fix the `TypeError: Cannot read properties of null (reading 'displayIcon')` in production in `agent/[agent].jsx`
 - [ ] Avoid repeatition
-- [ ] Adding more content -- basically (almost) everything that is given by the API
-- [ ] Move to TypeScript
 
 ## Completed TODOs
 
 - [x] SEO
+- [x] Move to TypeScript
+- [x] Fix the `TypeError: Cannot read properties of null (reading 'displayIcon')` in production in `agent/[agent].jsx`
 - [x] Fix the Weapon page layout
 - [x] Move to styled-components
 - [x] Create a Card component which takes childrens -- Agents, weapons, seasons, etc are shown on the homepage
 - [x] Cache the pages (static pages don't need to be cached)
 - [x] dynamically creating pages -- `[...slug].jsx` on the pages folder
 - [x] Moving main page inside a card that displays "Agents" -- when clicked on it, it goes to another page that shows every agent
-
 - [x] Add maps
+- [x] `maps/ee613ee9-28b7-4beb-9666-08db13bb2244` error is `The Range` and doesn't have a `displayIcon` — possible fix is to use ternary operator
+- [x] **FIX THE DEPLOYMENT ERROR BEFORE ANYTHING ELSE.**
+
+- [x] `TypeError: Cannot read properties of null (reading 'default')` is the `Sova` with `isPlayableCharacter = false` id: `/agent/ded3520f-4264-bfed-162d-b080e2abccf9` — possible fix is to use ternary operator
