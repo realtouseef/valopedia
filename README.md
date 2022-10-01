@@ -32,6 +32,17 @@ yarn
 yarn dev
 ```
 
+## ERROR
+
+Apparently getting `pre-render` error for the `[agent].tsx`
+
+**A bit about the errors:**
+The API has 2 `Sova`, one with `isPlayableCharacter = true` and the other one with `false`, and we are fetching the one with `true` because it has all the data available.
+Error is occuring because
+
+- NextJS is creating static pages for every agent and the `Sova` with `false` is being returned but with no data -- something like that.
+- running fine on `local` but when pushed to `vercel` or `yarn build`, the error occurs.
+
 ## Priority TODOs
 
 - [ ] Adding more content -- basically (almost) everything that is given by the API
