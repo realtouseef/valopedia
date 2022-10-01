@@ -26,12 +26,7 @@ const Weapon: React.FunctionComponent<SingleWeaponType> = ({ weapon }) => {
       </Link>
       <main>
         <ImageWrapper>
-          <Image
-            src={displayIcon}
-            alt={displayName}
-            layout="fill"
-            objectFit="contain"
-          />
+          <Image src={displayIcon} alt={displayName} layout="fill" />
         </ImageWrapper>
         <h1>{displayName}</h1>
         <div>
