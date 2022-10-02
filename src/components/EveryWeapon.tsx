@@ -41,6 +41,7 @@ const EveryWeapon: React.FunctionComponent<WeaponsTypes> = ({
                     src={displayIcon}
                     alt={displayName}
                     layout="fill"
+                    objectFit="contain"
                     priority
                   />
                 </ImageWrapper>

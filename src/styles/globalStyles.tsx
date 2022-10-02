@@ -58,8 +58,6 @@ export const OuterWrapper = styled.div<OuterWrapperType>`
 `;
 
 export const InsideWrapper = styled.a`
-  max-width: 28rem;
-  width: max-content;
   padding: 0.5rem 0.75rem;
   cursor: pointer;
   user-select: none;
